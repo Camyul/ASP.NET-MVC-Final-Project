@@ -3,8 +3,44 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelerikAcademy.FinalProject.Web", "TelerikAcademy.FinalProject.Web\TelerikAcademy.FinalProject.Web.csproj", "{5B786A29-47B6-46EA-8735-EBB3838B3CB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelerikAcademy.FinalProject.Web.Tests", "TelerikAcademy.FinalProject.Web.Tests\TelerikAcademy.FinalProject.Web.Tests.csproj", "{6E838EC4-F6B1-4882-9010-D8FBE1486444}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{880EE4F3-EC61-47AB-ADBB-706A4AB2198A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelerikAcademy.FinalProject.Data", "TelerikAcademy.FinalProject.Data\TelerikAcademy.FinalProject.Data.csproj", "{1C19AC6C-3DB0-48CF-9AAF-0C2CC22A0A91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelerikAcademy.FinalProject.Data.Model", "TelerikAcademy.FinalProject.Data.Model\TelerikAcademy.FinalProject.Data.Model.csproj", "{562906AA-3D38-479A-A3A5-243D262A1909}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B786A29-47B6-46EA-8735-EBB3838B3CB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B786A29-47B6-46EA-8735-EBB3838B3CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B786A29-47B6-46EA-8735-EBB3838B3CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B786A29-47B6-46EA-8735-EBB3838B3CB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E838EC4-F6B1-4882-9010-D8FBE1486444}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E838EC4-F6B1-4882-9010-D8FBE1486444}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E838EC4-F6B1-4882-9010-D8FBE1486444}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E838EC4-F6B1-4882-9010-D8FBE1486444}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C19AC6C-3DB0-48CF-9AAF-0C2CC22A0A91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C19AC6C-3DB0-48CF-9AAF-0C2CC22A0A91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C19AC6C-3DB0-48CF-9AAF-0C2CC22A0A91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C19AC6C-3DB0-48CF-9AAF-0C2CC22A0A91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{562906AA-3D38-479A-A3A5-243D262A1909}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{562906AA-3D38-479A-A3A5-243D262A1909}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{562906AA-3D38-479A-A3A5-243D262A1909}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{562906AA-3D38-479A-A3A5-243D262A1909}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1C19AC6C-3DB0-48CF-9AAF-0C2CC22A0A91} = {880EE4F3-EC61-47AB-ADBB-706A4AB2198A}
+		{562906AA-3D38-479A-A3A5-243D262A1909} = {880EE4F3-EC61-47AB-ADBB-706A4AB2198A}
 	EndGlobalSection
 EndGlobal
