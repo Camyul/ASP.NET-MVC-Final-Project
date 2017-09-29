@@ -17,6 +17,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{DDDD56
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelerikAcademy.FinalProject.Common.Constant", "TelerikAcademy.FinalProject.Common.Constant\TelerikAcademy.FinalProject.Common.Constant.csproj", "{ED9D8960-F341-4B99-ABC1-74198A99C75E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{7F0CF402-0CE4-4AE0-AF7B-4B9076DFA9FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelerikAcademy.FinalProject.Services", "TelerikAcademy.FinalProject.Services\TelerikAcademy.FinalProject.Services.csproj", "{7BEB5FF3-77CC-4AC7-A0BE-2BCA8405AE67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +47,10 @@ Global
 		{ED9D8960-F341-4B99-ABC1-74198A99C75E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED9D8960-F341-4B99-ABC1-74198A99C75E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED9D8960-F341-4B99-ABC1-74198A99C75E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BEB5FF3-77CC-4AC7-A0BE-2BCA8405AE67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BEB5FF3-77CC-4AC7-A0BE-2BCA8405AE67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BEB5FF3-77CC-4AC7-A0BE-2BCA8405AE67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BEB5FF3-77CC-4AC7-A0BE-2BCA8405AE67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,5 +59,6 @@ Global
 		{1C19AC6C-3DB0-48CF-9AAF-0C2CC22A0A91} = {880EE4F3-EC61-47AB-ADBB-706A4AB2198A}
 		{562906AA-3D38-479A-A3A5-243D262A1909} = {880EE4F3-EC61-47AB-ADBB-706A4AB2198A}
 		{ED9D8960-F341-4B99-ABC1-74198A99C75E} = {DDDD5639-E612-45E9-A5DD-612164E01D30}
+		{7BEB5FF3-77CC-4AC7-A0BE-2BCA8405AE67} = {7F0CF402-0CE4-4AE0-AF7B-4B9076DFA9FD}
 	EndGlobalSection
 EndGlobal

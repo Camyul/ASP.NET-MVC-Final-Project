@@ -1,13 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TelerikAcademy.FinalProject.Common.Constant;
+using TelerikAcademy.FinalProject.Data.Model.Abstracts;
 
 namespace TelerikAcademy.FinalProject.Data.Model
 {
-    public class Product
+    public class Product : DataModel
     {
+        //public Product()
+        //{
+           
+        //}
 
+        [Required]
+        [Index(IsUnique = true)]
+        [MinLength(ValidationConstants.StandardMinLength, ErrorMessage = ValidationConstants.MinLengthFieldErrorMessage)]
+        [MaxLength(ValidationConstants.StandartMaxLength, ErrorMessage = ValidationConstants.MaxLengthFieldErrorMessage)]
+        [RegularExpression(ValidationConstants.EnBgDigitSpaceMinus, ErrorMessage = ValidationConstants.NotAllowedSymbolsErrorMessage)]
+        public string Name { get; set; }
+
+        [Column(TypeName = "ntext")]
+        [MinLength(ValidationConstants.DescriptionMinLength, ErrorMessage = ValidationConstants.MinLengthDescriptionErrorMessage)]
+        [MaxLength(ValidationConstants.DescriptionMaxLength, ErrorMessage = ValidationConstants.MaxLengthDescriptionErrorMessage)]
+        [RegularExpression(ValidationConstants.DescriptionRegex, ErrorMessage = ValidationConstants.NotAllowedSymbolsErrorMessage)]
+        public string Description { get; set; }
+
+        [Required]
+        [Range(
+            ValidationConstants.QuantityMinValue,
+            ValidationConstants.QuantityMaxValue,
+            ErrorMessage = ValidationConstants.QuаntityOutOfRangeErrorMessage)]
+        public int Quantity { get; set; }
+
+        // [ForeignKey("Category")]
+        // public int CategoryId { get; set; }
+
+        // public virtual Category Category { get; set; }
+
+        [MinLength(ValidationConstants.ImageUrlMinLength, ErrorMessage = ValidationConstants.MinLengthUrlErrorMessage)]
+        [MaxLength(ValidationConstants.ImageUrlMaxLength, ErrorMessage = ValidationConstants.MaxLengthUrlErrorMessage)]
+        public string PictureUrl { get; set; }
+
+        [Required]
+        public decimal Price { get; set; }
     }
 }
