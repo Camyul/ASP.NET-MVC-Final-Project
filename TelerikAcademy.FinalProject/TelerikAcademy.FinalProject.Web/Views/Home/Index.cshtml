@@ -17,14 +17,3 @@
         @Html.Partial("_ProductPreviewPartial", product)
     }
 </div>
-
-<div class="row">
-    @foreach (var product in Model)
-    {
-        using (Html.BeginForm("Index", "Home", FormMethod.Post))
-        {
-
-        @Html.EditorFor(product)
-        }
-    }
-</div>
