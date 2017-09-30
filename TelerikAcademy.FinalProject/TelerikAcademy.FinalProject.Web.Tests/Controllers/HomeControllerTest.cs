@@ -1,31 +1,36 @@
-﻿using System;
+﻿using AutoMapper;
+using Moq;
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Web.Mvc;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TelerikAcademy.FinalProject.Web;
+using TelerikAcademy.FinalProject.Data.Model;
+using TelerikAcademy.FinalProject.Services.Contracts;
 using TelerikAcademy.FinalProject.Web.Controllers;
+using TelerikAcademy.FinalProject.Web.Models.Home;
 
 namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
 {
-    [TestClass]
+    [TestFixture]
     public class HomeControllerTest
     {
-        [TestMethod]
+        [Test]
         public void Index()
         {
             // Arrange
-            // HomeController controller = new HomeController();
+            
+            var productServiceMock = new Mock<IProductsService>();
+            // var mapperMock = new Mock<IMapper>();
+            HomeController controller = new HomeController(productServiceMock.Object);//, mapperMock.Object);
+         
 
             // Act
-           // ViewResult result = controller.Index() as ViewResult;
+           var result = controller.Index();
 
             // Assert
-           // Assert.IsNotNull(result);
+            productServiceMock.Verify(x => x.GetAll(), Times.Once);
         }
 
-        [TestMethod]
+        [Test]
         public void About()
         {
             // Arrange
@@ -38,7 +43,7 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
           //  Assert.AreEqual("Your application description page.", result.ViewBag.Message);
         }
 
-        [TestMethod]
+        [Test]
         public void Contact()
         {
             // Arrange

@@ -15,35 +15,37 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
     public class HomeController : Controller
     {
         private readonly IProductsService productsService;
-        private readonly IMapper mapper;
+        // private readonly IMapper mapper;
 
-        public HomeController(IProductsService productsService, IMapper mapper)
+        public HomeController(IProductsService productsService)// , IMapper mapper)
         {
             this.productsService = productsService;
-            this.mapper = mapper;
+            // this.mapper = mapper;
         }
+
+        [HttpGet]
         public ActionResult Index()
         {
-            //Without AutoMapper
-            //var products = this.productsService
-            //    .GetAll()
-            //    .OrderByDescending(x => x.CreatedOn)
-            //    .Select(x => new ProductViewModel()
-            //    {
-            //        PictureUrl = x.PictureUrl,
-            //        Name = x.Name,
-            //        Description = x.Description,
-            //        Price = x.Price
-            //    })
-            //    .Take(8)
-            //    .ToList();
-
+            // Without AutoMapper
             var products = this.productsService
                 .GetAll()
                 .OrderByDescending(x => x.CreatedOn)
-                .ProjectTo<ProductViewModel>()
-                .Take(4)
+                .Select(x => new ProductViewModel()
+                {
+                    PictureUrl = x.PictureUrl,
+                    Name = x.Name,
+                    Description = x.Description,
+                    Price = x.Price
+                })
+                .Take(8)
                 .ToList();
+
+            //var products = this.productsService
+            //    .GetAll()
+            //    .OrderByDescending(x => x.CreatedOn)
+            //    .ProjectTo<ProductViewModel>()
+            //    .Take(4)
+            //    .ToList();
 
             return View(products);
         }
