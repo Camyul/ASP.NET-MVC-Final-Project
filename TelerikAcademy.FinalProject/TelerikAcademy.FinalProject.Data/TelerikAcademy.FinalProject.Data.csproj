@@ -66,6 +66,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EfRepository.cs" />
     <Compile Include="Repositories\IEfRepository.cs" />
+    <Compile Include="SaveContext\ISaveContext.cs" />
+    <Compile Include="SaveContext\SaveContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -6,5 +6,7 @@ namespace TelerikAcademy.FinalProject.Services.Contracts
     public interface IProductsService
     {
         IQueryable<Product> GetAll();
+
+        void Update(Product product);
     }
 }

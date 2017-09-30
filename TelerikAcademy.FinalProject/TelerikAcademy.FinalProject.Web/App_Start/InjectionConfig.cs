@@ -15,6 +15,8 @@ namespace TelerikAcademy.FinalProject.Web.App_Start
     using TelerikAcademy.FinalProject.Data.Repositories;
     using TelerikAcademy.FinalProject.Data;
     using TelerikAcademy.FinalProject.Services.Contracts;
+    using Data.SaveContext;
+    using AutoMapper;
 
     public static class InjectionConfig 
     {
@@ -82,6 +84,8 @@ namespace TelerikAcademy.FinalProject.Web.App_Start
 
             kernel.Bind(typeof(DbContext), typeof(MsSqlDbContext)).To<MsSqlDbContext>().InRequestScope();
             kernel.Bind(typeof(IEfRepository<>)).To(typeof(EfRepository<>));
+            kernel.Bind<ISaveContext>().To<SaveContext>();
+            kernel.Bind<IMapper>().ToMethod(x => Mapper.Instance).InSingletonScope();
 
         }        
     }
