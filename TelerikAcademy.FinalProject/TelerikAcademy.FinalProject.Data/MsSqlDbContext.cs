@@ -26,6 +26,7 @@ namespace TelerikAcademy.FinalProject.Data
             return base.SaveChanges();
         }
 
+        // Auto set fields CreatedOn and ModifiedOn when State is Added or Modified
         private void ApplyAuditInfoRules()
         {
             foreach (var entry in

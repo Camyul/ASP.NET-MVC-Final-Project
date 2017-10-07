@@ -40,6 +40,7 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
                 .Take(8)
                 .ToList();
 
+            // With AutoMapper
             //var products = this.productsService
             //    .GetAll()
             //    .OrderByDescending(x => x.CreatedOn)
