@@ -12,8 +12,14 @@
 </div>
 
 <div class="row">
-    @foreach (var product in Model)
-    {
-        @Html.Partial("_ProductPreviewPartial", product)
-    }
+    <div class="latest-recipes row eq-height">
+        <h3 class="col-sm-12" id="enjoy">Last Product</h3>
+        <div class="col-sm-12 eq-height">
+            @foreach (var product in Model)
+            {
+                @Html.Partial("_ProductPreviewPartial", product)
+            }
+        </div>
+    </div>
+    
 </div>
