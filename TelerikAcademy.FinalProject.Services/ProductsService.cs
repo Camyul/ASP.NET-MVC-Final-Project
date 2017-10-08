@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using Bytes2you.Validation;
+using System.Linq;
 using TelerikAcademy.FinalProject.Data.Model;
 using TelerikAcademy.FinalProject.Data.Repositories;
 using TelerikAcademy.FinalProject.Data.SaveContext;
@@ -13,6 +14,9 @@ namespace TelerikAcademy.FinalProject.Services
 
         public ProductsService(IEfRepository<Product> productsRepo, ISaveContext context)
         {
+            Guard.WhenArgument(productsRepo, "productsRepo").IsNull().Throw();
+            Guard.WhenArgument(context, "context").IsNull().Throw();
+
             this.productsRepo = productsRepo;
             this.context = context;
         }

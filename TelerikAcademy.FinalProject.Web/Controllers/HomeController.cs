@@ -52,9 +52,17 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(ProductViewModel product)
+        public ActionResult Index(ProductViewModel productViewModel)
         {
-            // this.productsService.Update();
+            Product product = new Product()
+            {
+                PictureUrl = productViewModel.PictureUrl,
+                Name = productViewModel.Name,
+                Description = productViewModel.Description,
+                Price = productViewModel.Price
+            };
+
+            this.productsService.Update(product);
 
             return this.RedirectToAction("Index");
         }

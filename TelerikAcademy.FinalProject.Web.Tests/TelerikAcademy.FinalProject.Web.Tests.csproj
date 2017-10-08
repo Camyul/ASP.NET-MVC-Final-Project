@@ -103,6 +103,8 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="Services\ProductsService\Constructor_Should.cs" />
+    <Compile Include="Services\ProductsService\ProductServive_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -114,6 +116,10 @@
     <ProjectReference Include="..\TelerikAcademy.FinalProject.Data.Model\TelerikAcademy.FinalProject.Data.Model.csproj">
       <Project>{562906AA-3D38-479A-A3A5-243D262A1909}</Project>
       <Name>TelerikAcademy.FinalProject.Data.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TelerikAcademy.FinalProject.Data\TelerikAcademy.FinalProject.Data.csproj">
+      <Project>{1C19AC6C-3DB0-48CF-9AAF-0C2CC22A0A91}</Project>
+      <Name>TelerikAcademy.FinalProject.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\TelerikAcademy.FinalProject.Services\TelerikAcademy.FinalProject.Services.csproj">
       <Project>{7BEB5FF3-77CC-4AC7-A0BE-2BCA8405AE67}</Project>

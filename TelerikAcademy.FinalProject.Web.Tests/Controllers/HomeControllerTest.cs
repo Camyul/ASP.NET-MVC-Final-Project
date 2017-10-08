@@ -3,6 +3,7 @@ using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Mvc;
 using TelerikAcademy.FinalProject.Data.Model;
 using TelerikAcademy.FinalProject.Services.Contracts;
 using TelerikAcademy.FinalProject.Web.Controllers;
@@ -34,26 +35,27 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
         public void About()
         {
             // Arrange
-            // HomeController controller = new HomeController();
+            var productServiceMock = new Mock<IProductsService>();
+            HomeController controller = new HomeController(productServiceMock.Object);
 
             // Act
-           // ViewResult result = controller.About() as ViewResult;
+            ViewResult result = controller.About() as ViewResult;
 
             // Assert
-          //  Assert.AreEqual("Your application description page.", result.ViewBag.Message);
+            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
         }
 
         [Test]
         public void Contact()
         {
-            // Arrange
-            // HomeController controller = new HomeController();
+            var productServiceMock = new Mock<IProductsService>();
+            HomeController controller = new HomeController(productServiceMock.Object);
 
             // Act
-           // ViewResult result = controller.Contact() as ViewResult;
+            ViewResult result = controller.Contact() as ViewResult;
 
             // Assert
-           // Assert.IsNotNull(result);
+            Assert.IsNotNull(result);
         }
     }
 }

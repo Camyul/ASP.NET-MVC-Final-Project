@@ -8,7 +8,7 @@ using TelerikAcademy.FinalProject.Web.Infrastructure;
 
 namespace TelerikAcademy.FinalProject.Web.Models.Home
 {
-    public class ProductViewModel : IMapFrom<Product>, IHaveCustomMappings
+    public class ProductViewModel //: IMapFrom<Product>, IHaveCustomMappings
     {
         public string Name { get; set; }
 
@@ -20,11 +20,11 @@ namespace TelerikAcademy.FinalProject.Web.Models.Home
 
         public decimal Price { get; set; }
 
-        public void CreateMappings(IMapperConfigurationExpression configuration)
-        {
-            configuration.CreateMap<Product, ProductViewModel>()
-                .ForMember(productViewModel => productViewModel.Name, cfg => cfg.MapFrom(product => product.Name))
-                .ForMember(productViewModel => productViewModel.Description, cfg => cfg.MapFrom(product => product.Description));
-        }
+        //public void CreateMappings(IMapperConfigurationExpression configuration)
+        //{
+        //    configuration.CreateMap<Product, ProductViewModel>()
+        //        .ForMember(productViewModel => productViewModel.Name, cfg => cfg.MapFrom(product => product.Name))
+        //        .ForMember(productViewModel => productViewModel.Description, cfg => cfg.MapFrom(product => product.Description));
+        //}
     }
 }
