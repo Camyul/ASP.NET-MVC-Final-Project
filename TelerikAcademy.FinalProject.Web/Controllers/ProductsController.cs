@@ -61,8 +61,10 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
                 Price = productModel.Price,
                 Quantity = productModel.Quantity
             };
+
             this.productsService.AddProduct(product);
-            return View();
+
+            return RedirectToAction("Index", "Products");
         }
 
 
