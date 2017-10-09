@@ -29,5 +29,25 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Services.ProductsService
             // Assert
             Assert.IsNotNull(productServiceMock);
         }
+
+        [Test]
+        public void ThrowException_WhenBookSetWrapperIsNull()
+        {
+            // Arrange
+            var SaveContextStub = new Mock<ISaveContext>();
+
+            // Act & Assert
+            Assert.Throws<ArgumentNullException>(() => new TelerikAcademy.FinalProject.Services.ProductsService(null, SaveContextStub.Object));
+        }
+
+        [Test]
+        public void ThrowException_WhenDbContextIsNull()
+        {
+            // Arrange
+            var EfRepositoryStub = new Mock<IEfRepository<Product>>();
+
+            // Act & Assert
+            Assert.Throws<ArgumentNullException>(() => new TelerikAcademy.FinalProject.Services.ProductsService(EfRepositoryStub.Object, null));
+        }
     }
 }

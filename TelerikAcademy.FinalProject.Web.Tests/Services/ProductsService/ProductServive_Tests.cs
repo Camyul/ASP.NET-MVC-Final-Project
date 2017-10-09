@@ -46,5 +46,40 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Services.ProductsService
             // Assert
             EfRepositoryStub.Verify(x => x.Update(product), Times.Once);
         }
+
+        [Test]
+        public void GetById_ShouldReturnsNullWhenProductIdNotValid()
+        {
+            // Arrange
+            var EfRepositoryStub = new Mock<IEfRepository<Product>>();
+            var SaveContextStub = new Mock<ISaveContext>();
+            Guid? productId = Guid.NewGuid();
+
+
+            var productService = new TelerikAcademy.FinalProject.Services.ProductsService(EfRepositoryStub.Object, SaveContextStub.Object);
+
+            // Act
+            Product productModel = productService.GetById(productId.Value);
+
+            // Assert
+            Assert.IsNull(productModel);
+        }
+
+        [Test]
+        public void GetById_ShouldReturnsNullWhenProductIdIsNull()
+        {
+            // Arrange
+            var EfRepositoryStub = new Mock<IEfRepository<Product>>();
+            var SaveContextStub = new Mock<ISaveContext>();
+
+
+            var productService = new TelerikAcademy.FinalProject.Services.ProductsService(EfRepositoryStub.Object, SaveContextStub.Object);
+
+            // Act
+            Product productModel = productService.GetById(null);
+
+            // Assert
+            Assert.IsNull(productModel);
+        }
     }
 }

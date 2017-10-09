@@ -51,21 +51,21 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
             return View(products);
         }
 
-        [HttpPost]
-        public ActionResult Index(ProductViewModel productViewModel)
-        {
-            Product product = new Product()
-            {
-                PictureUrl = productViewModel.PictureUrl,
-                Name = productViewModel.Name,
-                Description = productViewModel.Description,
-                Price = productViewModel.Price
-            };
+        //[HttpPost]
+        //public ActionResult Index(ProductViewModel productViewModel)
+        //{
+        //    Product product = new Product()
+        //    {
+        //        PictureUrl = productViewModel.PictureUrl,
+        //        Name = productViewModel.Name,
+        //        Description = productViewModel.Description,
+        //        Price = productViewModel.Price
+        //    };
 
-            this.productsService.Update(product);
+        //    this.productsService.Update(product);
 
-            return this.RedirectToAction("Index");
-        }
+        //    return this.RedirectToAction("Index");
+        //}
 
         public ActionResult About()
         {

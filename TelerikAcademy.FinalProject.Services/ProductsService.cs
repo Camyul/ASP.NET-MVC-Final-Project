@@ -1,4 +1,5 @@
 ﻿using Bytes2you.Validation;
+using System;
 using System.Linq;
 using TelerikAcademy.FinalProject.Data.Model;
 using TelerikAcademy.FinalProject.Data.Repositories;
@@ -24,6 +25,23 @@ namespace TelerikAcademy.FinalProject.Services
         public IQueryable<Product> GetAll()
         {
             return this.productsRepo.All;
+        }
+        public Product GetById(Guid? id)
+        {
+            Product result = null;
+            if (id.HasValue)
+            {
+                Product product = this.productsRepo.All
+                    .Where(x => x.Id == id.Value)
+                    .SingleOrDefault();
+
+                if (product != null)
+                {
+                    result = product;
+                }
+            }
+
+            return result;
         }
 
         public void Update(Product product)
