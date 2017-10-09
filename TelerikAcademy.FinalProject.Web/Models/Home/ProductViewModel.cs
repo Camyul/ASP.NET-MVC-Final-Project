@@ -10,6 +10,20 @@ namespace TelerikAcademy.FinalProject.Web.Models.Home
 {
     public class ProductViewModel //: IMapFrom<Product>, IHaveCustomMappings
     {
+        public ProductViewModel()
+        {
+
+        }
+
+        public ProductViewModel(Product product)
+        {
+            this.Name = product.Name;
+            this.Description = product.Description;
+            this.Quantity = product.Quantity;
+            this.PictureUrl = product.PictureUrl;
+            this.Price = product.Price;
+        }
+
         public string Name { get; set; }
 
         public string Description { get; set; }

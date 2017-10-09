@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TelerikAcademy.FinalProject.Data.Model;
 using TelerikAcademy.FinalProject.Services.Contracts;
 using TelerikAcademy.FinalProject.Web.Models.Home;
 
@@ -39,6 +40,31 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
 
             return View(products);
         }
+
+        [HttpGet]
+        public ActionResult AddProduct()
+        {
+            var product = new ProductViewModel();
+            
+            return View(product);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddProduct(ProductViewModel productModel)
+        {
+            Product product = new Product()
+            {
+                PictureUrl = productModel.PictureUrl,
+                Name = productModel.Name,
+                Description = productModel.Description,
+                Price = productModel.Price,
+                Quantity = productModel.Quantity
+            };
+            this.productsService.AddProduct(product);
+            return View();
+        }
+
 
         //[HttpGet]
         //public ActionResult Search()

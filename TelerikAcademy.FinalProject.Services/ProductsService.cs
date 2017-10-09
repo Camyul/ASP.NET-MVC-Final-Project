@@ -26,6 +26,7 @@ namespace TelerikAcademy.FinalProject.Services
         {
             return this.productsRepo.All;
         }
+
         public Product GetById(Guid? id)
         {
             Product result = null;
@@ -42,6 +43,12 @@ namespace TelerikAcademy.FinalProject.Services
             }
 
             return result;
+        }
+
+        public void AddProduct(Product product)
+        {
+            this.productsRepo.Add(product);
+            this.context.Commit();
         }
 
         public void Update(Product product)

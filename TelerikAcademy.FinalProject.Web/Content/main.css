@@ -4,6 +4,10 @@
     justify-content: center;
     background: #ececec;
 }
+.product-img {
+    width: 150px;
+    height: 150px;
+}
 #categories {
     display: flex;
     flex-direction: column;
@@ -25,7 +29,6 @@
 
 .eq-height {
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
