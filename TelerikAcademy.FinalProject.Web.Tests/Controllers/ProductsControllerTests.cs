@@ -1,0 +1,129 @@
+﻿using Moq;
+using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TelerikAcademy.FinalProject.Data.Model;
+using TelerikAcademy.FinalProject.Services.Contracts;
+using TelerikAcademy.FinalProject.Web.Controllers;
+using TelerikAcademy.FinalProject.Web.Models.Home;
+using TestStack.FluentMVCTesting;
+
+namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
+{
+    [TestFixture]
+    public class ProductsControllerTests
+    {
+        [Test]
+        public void ConstructorShould_ReturnsAnInstance_WhenParameterIsNotNull()
+        {
+            // Arrange
+            var productsServiceMock = new Mock<IProductsService>();
+
+            // Act
+            ProductsController productsController = new ProductsController(productsServiceMock.Object);
+
+            // Assert
+            Assert.IsNotNull(productsController);
+        }
+
+        [Test]
+        public void ConstructorShould_ThrowException_WhenParametersAreNull()
+        {
+            // Arrange & Act & Assert
+            Assert.Throws<ArgumentNullException>(() => new ProductsController(null));
+        }
+
+        [Test]
+        public void DetailsShould_ReturnViewWithModelWithCorrectProperties_WhenThereIsAModelWithThePassedId()
+        {
+            // Arrange
+            var productsServiceMock = new Mock<IProductsService>();
+
+            var productModel = new Product()
+            {
+                Id = Guid.NewGuid(),
+                Name = "name",
+                Description = "descr",
+                Quantity = 3,
+                PictureUrl = "picUrl",
+                Price = 5.55M,
+        };
+
+            var productViewModel = new ProductViewModel(productModel);
+
+            productsServiceMock.Setup(m => m.GetById(productModel.Id)).Returns(productModel);
+
+            ProductsController productsController = new ProductsController(productsServiceMock.Object);
+
+            // Act & Assert
+            //productsController
+            //    .WithCallTo(b => b.Details(productModel.Id))
+            //    .ShouldRenderDefaultView()
+            //    .WithModel<ProductViewModel>(viewModel =>
+            //    {
+            //        Assert.AreEqual(productModel.Name, viewModel.Name);
+            //        Assert.AreEqual(productModel.Quantity, viewModel.Quantity);
+            //        Assert.AreEqual(productModel.PictureUrl, viewModel.PictureUrl);
+            //        Assert.AreEqual(productModel.Price, viewModel.Price);
+            //    });
+        }
+
+        [Test]
+        public void DetailsShould_ReturnViewWithEmptyModel_WhenThereNoModelWithThePassedId()
+        {
+            // Arrange
+            var productsServiceMock = new Mock<IProductsService>();
+
+            var productViewModel = new ProductViewModel();
+
+            Guid? productId = Guid.NewGuid();
+            productsServiceMock.Setup(m => m.GetById(productId.Value)).Returns((Product)null);
+
+      
+
+            ProductsController bookController = new ProductsController(productsServiceMock.Object);
+
+            // Act & Assert
+
+            //bookController
+            //    .WithCallTo(b => b.Details(productId.Value))
+            //    .ShouldRenderDefaultView()
+            //    .WithModel<ProductViewModel>(viewModel =>
+            //    {
+            //                Assert.AreEqual(productModel.Name, viewModel.Name);
+            //                Assert.AreEqual(productModel.Quantity, viewModel.Quantity);
+            //                Assert.AreEqual(productModel.PictureUrl, viewModel.PictureUrl);
+            //                Assert.AreEqual(productModel.Price, viewModel.Price);
+            //    });
+        }
+
+        [Test]
+        public void DetailsShould_ReturnViewWithEmptyModel_WhenParameterIsNull()
+        {
+            var productsServiceMock = new Mock<IProductsService>();
+
+            var productViewModel = new ProductViewModel();
+
+            Guid? productId = Guid.NewGuid();
+            productsServiceMock.Setup(m => m.GetById(null)).Returns((Product)null);
+
+            ProductsController bookController = new ProductsController(productsServiceMock.Object);
+
+            // Act & Assert
+
+            //bookController
+            //    .WithCallTo(b => b.Details(productId.Value))
+            //    .ShouldRenderDefaultView()
+            //    .WithModel<ProductViewModel>(viewModel =>
+            //    {
+            //                Assert.AreEqual(productModel.Name, viewModel.Name);
+            //                Assert.AreEqual(productModel.Quantity, viewModel.Quantity);
+            //                Assert.AreEqual(productModel.PictureUrl, viewModel.PictureUrl);
+            //                Assert.AreEqual(productModel.Price, viewModel.Price);
+            //    });
+        }
+    }
+}
