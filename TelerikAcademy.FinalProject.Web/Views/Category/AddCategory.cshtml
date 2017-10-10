@@ -1,0 +1,15 @@
+﻿@using TelerikAcademy.FinalProject.Web.Models.Category
+@model CategoryViewModel
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    @Html.EditorForModel(Model);
+    <input type="submit" class="btn btn-success" value="Add" />
+}
+
+@section Scripts {
+    @Scripts.Render("~bundles/jqueryval")
+} 

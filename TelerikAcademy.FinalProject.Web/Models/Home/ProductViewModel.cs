@@ -21,6 +21,7 @@ namespace TelerikAcademy.FinalProject.Web.Models.Home
             this.Name = product.Name;
             this.Description = product.Description;
             this.LongDescription = product.LongDescription;
+            this.Category = product.Category;
             this.Quantity = product.Quantity;
             this.PictureUrl = product.PictureUrl;
             this.Price = product.Price;
@@ -32,6 +33,7 @@ namespace TelerikAcademy.FinalProject.Web.Models.Home
 
         public string Description { get; set; }
         public string LongDescription { get; set; }
+        public TelerikAcademy.FinalProject.Data.Model.Category Category { get; set; }
 
         public int Quantity { get; set; }
 

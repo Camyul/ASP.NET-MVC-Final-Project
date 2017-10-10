@@ -18,6 +18,7 @@ namespace TelerikAcademy.FinalProject.Data
         }
 
         public IDbSet<Product> Products { get; set; }
+        public IDbSet<Category> Categories { get; set; }
 
         // Auto filling CreatedOn and ModifiedOn before SaveChanges()
         public override int SaveChanges()

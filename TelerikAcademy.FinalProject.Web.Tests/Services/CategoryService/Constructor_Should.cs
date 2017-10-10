@@ -8,26 +8,25 @@ using System.Threading.Tasks;
 using TelerikAcademy.FinalProject.Data.Model;
 using TelerikAcademy.FinalProject.Data.Repositories;
 using TelerikAcademy.FinalProject.Data.SaveContext;
-using TelerikAcademy.FinalProject.Services.Contracts;
 
-namespace TelerikAcademy.FinalProject.Web.Tests.Services.ProductsService
+namespace TelerikAcademy.FinalProject.Web.Tests.Services.CategoryService
 {
     [TestFixture]
     public class Constructor_Should
     {
         [Test]
-        public void ConstructorShould_CreateProductService()
+        public void ConstructorShould_CreateCategoryService()
         {
 
             // Arrange
-            var EfRepositoryStub = new Mock<IEfRepository<Product>>();
+            var EfRepositoryStub = new Mock<IEfRepository<Category>>();
             var SaveContextStub = new Mock<ISaveContext>();
 
             // Act
-            var productServiceMock = new TelerikAcademy.FinalProject.Services.ProductsService(EfRepositoryStub.Object, SaveContextStub.Object);
+            var categoryServiceMock = new TelerikAcademy.FinalProject.Services.CategoryService(EfRepositoryStub.Object, SaveContextStub.Object);
 
             // Assert
-            Assert.IsNotNull(productServiceMock);
+            Assert.IsNotNull(categoryServiceMock);
         }
 
         [Test]
@@ -37,17 +36,17 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Services.ProductsService
             var SaveContextStub = new Mock<ISaveContext>();
 
             // Act & Assert
-            Assert.Throws<ArgumentNullException>(() => new TelerikAcademy.FinalProject.Services.ProductsService(null, SaveContextStub.Object));
+            Assert.Throws<ArgumentNullException>(() => new TelerikAcademy.FinalProject.Services.CategoryService(null, SaveContextStub.Object));
         }
 
         [Test]
         public void ThrowException_WhenSaveContextIsNull()
         {
             // Arrange
-            var EfRepositoryStub = new Mock<IEfRepository<Product>>();
+            var EfRepositoryStub = new Mock<IEfRepository<Category>>();
 
             // Act & Assert
-            Assert.Throws<ArgumentNullException>(() => new TelerikAcademy.FinalProject.Services.ProductsService(EfRepositoryStub.Object, null));
+            Assert.Throws<ArgumentNullException>(() => new TelerikAcademy.FinalProject.Services.CategoryService(EfRepositoryStub.Object, null));
         }
     }
 }

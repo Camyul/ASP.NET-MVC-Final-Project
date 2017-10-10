@@ -12,7 +12,7 @@ using TelerikAcademy.FinalProject.Data.SaveContext;
 namespace TelerikAcademy.FinalProject.Web.Tests.Services.ProductsService
 {
     [TestFixture]
-    public class ProductServive_Tests
+    public class ProductService_Tests
     {
         [Test]
         public void GetAll_Should_InvocedRepository_All()
