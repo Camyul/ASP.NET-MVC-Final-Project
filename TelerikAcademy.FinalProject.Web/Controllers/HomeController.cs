@@ -32,6 +32,7 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
                 .OrderByDescending(x => x.CreatedOn)
                 .Select(x => new ProductViewModel()
                 {
+                    Id = x.Id,
                     PictureUrl = x.PictureUrl,
                     Name = x.Name,
                     Description = x.Description,

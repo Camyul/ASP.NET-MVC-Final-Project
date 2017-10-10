@@ -17,12 +17,15 @@ namespace TelerikAcademy.FinalProject.Web.Models.Home
 
         public ProductViewModel(Product product)
         {
+            this.Id = product.Id;
             this.Name = product.Name;
             this.Description = product.Description;
             this.Quantity = product.Quantity;
             this.PictureUrl = product.PictureUrl;
             this.Price = product.Price;
         }
+
+        public Guid? Id { get; set; }
 
         public string Name { get; set; }
 

@@ -306,6 +306,7 @@
     <Content Include="Views\Shared\_ProductPreviewPartial.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\AddProduct.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -31,6 +31,7 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
                 .OrderByDescending(x => x.CreatedOn)
                 .Select(x => new ProductViewModel()
                 {
+                    Id = x.Id,
                     PictureUrl = x.PictureUrl,
                     Name = x.Name,
                     Description = x.Description,
@@ -39,6 +40,15 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
                 .ToList();
 
             return View(products);
+        }
+
+        public ActionResult Details(Guid? id)
+        {
+            Product product = this.productsService.GetById(id);
+
+            ProductViewModel viewModel = new ProductViewModel(product);
+
+            return this.View(viewModel);
         }
 
         [HttpGet]
