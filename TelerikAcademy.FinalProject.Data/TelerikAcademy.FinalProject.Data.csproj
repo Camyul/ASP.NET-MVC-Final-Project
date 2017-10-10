@@ -65,6 +65,10 @@
     <Compile Include="Migrations\201709291239250_initial.Designer.cs">
       <DependentUpon>201709291239250_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710101611014_Add Category Order and OrderDetail Models.cs" />
+    <Compile Include="Migrations\201710101611014_Add Category Order and OrderDetail Models.Designer.cs">
+      <DependentUpon>201710101611014_Add Category Order and OrderDetail Models.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MsSqlDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,6 +90,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201709291239250_initial.resx">
       <DependentUpon>201709291239250_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710101611014_Add Category Order and OrderDetail Models.resx">
+      <DependentUpon>201710101611014_Add Category Order and OrderDetail Models.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -17,7 +17,7 @@ namespace TelerikAcademy.FinalProject.Data.Model.Abstracts
         }
 
         [Key]
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
 
         [Index]
         public bool IsDeleted { get; set; }

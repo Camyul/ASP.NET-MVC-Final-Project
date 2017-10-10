@@ -33,6 +33,7 @@ namespace TelerikAcademy.FinalProject.Data.Migrations
                 {
                     var product = new Product()
                     {
+                        Id = Guid.NewGuid(),
                         Name = "Product " + i,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lobortis nibh. Nullam bibendum, tortor quis porttitor fringilla, eros risus consequat orci, at scelerisque mauris dolor sit amet nulla. Vivamus turpis lorem, pellentesque eget enim ut, semper faucibus tortor. Aenean malesuada laoreet lorem.",
                         Quantity = i + 3,

@@ -34,7 +34,8 @@ namespace TelerikAcademy.FinalProject.Common.Constant
         public const int StandartMaxLength = 40;
 
         public const int DescriptionMinLength = 10;
-        public const int DescriptionMaxLength = 500;
+        public const int DescriptionMaxLength = 150;
+        public const int LongDescriptionMaxLength = 800;
 
         //public const int AddressMinLength = 2;
         //public const int AddressMaxLength = 100;
@@ -55,7 +56,8 @@ namespace TelerikAcademy.FinalProject.Common.Constant
         public const string MaxLengthFieldErrorMessage = "Полето {0} може да бъде максимум 40 символа";
 
         public const string MinLengthDescriptionErrorMessage = "Описанието трябва да бъде поне 10 символа";
-        public const string MaxLengthDescriptionErrorMessage = "Описанието може да бъде максимум 500 символа";
+        public const string MaxLengthDescriptionErrorMessage = "Описанието може да бъде максимум 150 символа";
+        public const string MaxLengthLongDescriptionErrorMessage = "Описанието може да бъде максимум 800 символа";
 
         public const string NotAllowedSymbolsErrorMessage = "Полето {0} съдържа неразрешени символи";
 

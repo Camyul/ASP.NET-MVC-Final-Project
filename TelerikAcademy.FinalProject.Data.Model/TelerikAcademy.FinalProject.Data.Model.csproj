@@ -62,8 +62,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstracts\DataModel.cs" />
+    <Compile Include="Category.cs" />
     <Compile Include="Contracts\IAuditable.cs" />
     <Compile Include="Contracts\IDeletable.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="OrderDetail.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />

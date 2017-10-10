@@ -30,17 +30,23 @@ namespace TelerikAcademy.FinalProject.Data.Model
         [RegularExpression(ValidationConstants.DescriptionRegex, ErrorMessage = ValidationConstants.NotAllowedSymbolsErrorMessage)]
         public string Description { get; set; }
 
+        [Column(TypeName = "ntext")]
+        [MinLength(ValidationConstants.DescriptionMinLength, ErrorMessage = ValidationConstants.MinLengthDescriptionErrorMessage)]
+        [MaxLength(ValidationConstants.LongDescriptionMaxLength, ErrorMessage = ValidationConstants.MaxLengthLongDescriptionErrorMessage)]
+        [RegularExpression(ValidationConstants.DescriptionRegex, ErrorMessage = ValidationConstants.NotAllowedSymbolsErrorMessage)]
+        public string LongDescription { get; set; }
+
         [Required]
         [Range(
             ValidationConstants.QuantityMinValue,
             ValidationConstants.QuantityMaxValue,
             ErrorMessage = ValidationConstants.QuаntityOutOfRangeErrorMessage)]
         public int Quantity { get; set; }
+        
+        [ForeignKey("Category")]
+        public Guid? CategoryId { get; set; }
 
-        // [ForeignKey("Category")]
-        // public int CategoryId { get; set; }
-
-        // public virtual Category Category { get; set; }
+        public virtual Category Category { get; set; }
 
         [MinLength(ValidationConstants.ImageUrlMinLength, ErrorMessage = ValidationConstants.MinLengthUrlErrorMessage)]
         [MaxLength(ValidationConstants.ImageUrlMaxLength, ErrorMessage = ValidationConstants.MaxLengthUrlErrorMessage)]

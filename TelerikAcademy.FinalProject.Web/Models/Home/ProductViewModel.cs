@@ -20,6 +20,7 @@ namespace TelerikAcademy.FinalProject.Web.Models.Home
             this.Id = product.Id;
             this.Name = product.Name;
             this.Description = product.Description;
+            this.LongDescription = product.LongDescription;
             this.Quantity = product.Quantity;
             this.PictureUrl = product.PictureUrl;
             this.Price = product.Price;
@@ -30,6 +31,7 @@ namespace TelerikAcademy.FinalProject.Web.Models.Home
         public string Name { get; set; }
 
         public string Description { get; set; }
+        public string LongDescription { get; set; }
 
         public int Quantity { get; set; }
 
