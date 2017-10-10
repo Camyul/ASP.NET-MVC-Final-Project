@@ -48,7 +48,7 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
         }
 
         [Test]
-        public void AddProductShould_ReturnsView()
+        public void AddProductShould_InvocedAddProduct()
         {
             //Arrange
             var productServiceMock = new Mock<IProductsService>();
@@ -61,6 +61,20 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
 
             // Assert
             productServiceMock.Setup(p => p.AddProduct(product)).Verifiable();
+        }
+
+        [Test]
+        public void AddProductShould_ReturnsView()
+        {
+            //Arrange
+            var productServiceMock = new Mock<IProductsService>();
+            ProductsController controller = new ProductsController(productServiceMock.Object);
+
+            // Act
+            ViewResult result = controller.AddProduct() as ViewResult;
+
+            // Assert
+            Assert.IsNotNull(result);
         }
 
         [Test]
