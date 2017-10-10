@@ -1,13 +1,8 @@
-﻿using AutoMapper;
-using Moq;
+﻿using Moq;
 using NUnit.Framework;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
-using TelerikAcademy.FinalProject.Data.Model;
 using TelerikAcademy.FinalProject.Services.Contracts;
 using TelerikAcademy.FinalProject.Web.Controllers;
-using TelerikAcademy.FinalProject.Web.Models.Home;
 
 namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
 {
@@ -15,7 +10,7 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
     public class HomeControllerTest
     {
         [Test]
-        public void Index()
+        public void IndexShould_GetAllInvocedExactlyOncee()
         {
             // Arrange
             
@@ -32,7 +27,7 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
         }
 
         [Test]
-        public void About()
+        public void AboutShould_DisplayMessage()
         {
             // Arrange
             var productServiceMock = new Mock<IProductsService>();
@@ -46,8 +41,9 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
         }
 
         [Test]
-        public void Contact()
+        public void ContactShould_ReturnView()
         {
+            //Arrange
             var productServiceMock = new Mock<IProductsService>();
             HomeController controller = new HomeController(productServiceMock.Object);
 
