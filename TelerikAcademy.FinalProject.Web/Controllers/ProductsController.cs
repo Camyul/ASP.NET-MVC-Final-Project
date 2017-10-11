@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using TelerikAcademy.FinalProject.Data.Model;
 using TelerikAcademy.FinalProject.Services.Contracts;
+using TelerikAcademy.FinalProject.Web.Models.Category;
 using TelerikAcademy.FinalProject.Web.Models.Home;
 
 namespace TelerikAcademy.FinalProject.Web.Controllers
@@ -13,12 +14,15 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
     public class ProductsController : Controller
     {
         private readonly IProductsService productsService;
+        private readonly ICategoryService categiryService;
 
-        public ProductsController(IProductsService productsService)
+        public ProductsController(IProductsService productsService, ICategoryService categiryService)
         {
             Guard.WhenArgument(productsService, "productsService").IsNull().Throw();
+            Guard.WhenArgument(categiryService, "categiryService").IsNull().Throw();
 
             this.productsService = productsService;
+            this.categiryService = categiryService;
         }
 
         // GET: Products
@@ -39,7 +43,19 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
                 })
                 .ToList();
 
-            return View(products);
+            var categories = this.categiryService.GetAllCategoriesSortedByName()
+                // .Select(x => new CategoriesNavigationViewModel(x))
+                .ToList();
+            var viewCategory = new List<CategoriesNavigationViewModel>();
+            foreach (var cat in categories)
+            {
+                viewCategory.Add(new CategoriesNavigationViewModel(cat));
+            }
+            //ViewBag.Categories = viewCategory;
+            ViewData["categories"] = viewCategory;
+            ViewData["products"] = products;
+
+            return View();
         }
 
         public ActionResult Details(Guid? id)

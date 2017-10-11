@@ -43,5 +43,14 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
 
             return RedirectToAction("AddCategory", "Category");
         }
+
+        [ChildActionOnly]
+        public ActionResult CategoriesNavigation()
+        {
+            var navigationCategories = this.categoryService.GetAllCategoriesSortedByName()
+                       .Select(c => new CategoriesNavigationViewModel(c)).ToList();
+
+            return PartialView("_CategoriesPartial", navigationCategories);
+        }
     }
 }

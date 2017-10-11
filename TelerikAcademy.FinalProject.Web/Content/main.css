@@ -8,11 +8,15 @@
     width: 150px;
     height: 150px;
 }
-#categories {
+#product-container #categories {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    font-weight:bold;
+    font-size: 20px;
+    color: darkblue;
 }
+
 #products {
     display: flex;
 }

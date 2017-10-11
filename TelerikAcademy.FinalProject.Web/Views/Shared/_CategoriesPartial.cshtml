@@ -1,0 +1,13 @@
+﻿@model IEnumerable<TelerikAcademy.FinalProject.Web.Models.Category.CategoriesNavigationViewModel>
+
+<div class="categories">
+            <ul class="nav navbar-nav ">
+                @foreach (var item in @Model)
+                {
+                    <li>
+                        @*Redirect to products with same category*@
+                        <a href=@Url.Action("CategoryDetails", "Category" , new { id = item.Id.Value })>@item.Name</a>
+                    </li>
+                }
+            </ul>
+</div>

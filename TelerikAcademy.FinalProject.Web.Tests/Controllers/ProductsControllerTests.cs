@@ -18,9 +18,10 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
         {
             // Arrange
             var productsServiceMock = new Mock<IProductsService>();
+            var categoryServiceMock = new Mock<ICategoryService>();
 
             // Act
-            ProductsController productsController = new ProductsController(productsServiceMock.Object);
+            ProductsController productsController = new ProductsController(productsServiceMock.Object, categoryServiceMock.Object);
 
             // Assert
             Assert.IsNotNull(productsController);
@@ -30,7 +31,7 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
         public void ConstructorShould_ThrowException_WhenParametersAreNull()
         {
             // Arrange & Act & Assert
-            Assert.Throws<ArgumentNullException>(() => new ProductsController(null));
+            Assert.Throws<ArgumentNullException>(() => new ProductsController(null, null));
         }
 
         [Test]
@@ -38,7 +39,10 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
         {
             //Arrange
             var productServiceMock = new Mock<IProductsService>();
-            ProductsController controller = new ProductsController(productServiceMock.Object);
+            var categoryServiceMock = new Mock<ICategoryService>();
+
+            ProductsController controller = new ProductsController(productServiceMock.Object, categoryServiceMock.Object);
+
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
@@ -52,7 +56,8 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
         {
             //Arrange
             var productServiceMock = new Mock<IProductsService>();
-            ProductsController controller = new ProductsController(productServiceMock.Object);
+            var categoryServiceMock = new Mock<ICategoryService>();
+            ProductsController controller = new ProductsController(productServiceMock.Object, categoryServiceMock.Object);
             Product product = new Product();
             ProductViewModel viewModel = new ProductViewModel(product);
 
@@ -68,7 +73,8 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
         {
             //Arrange
             var productServiceMock = new Mock<IProductsService>();
-            ProductsController controller = new ProductsController(productServiceMock.Object);
+            var categoryServiceMock = new Mock<ICategoryService>();
+            ProductsController controller = new ProductsController(productServiceMock.Object, categoryServiceMock.Object);
 
             // Act
             ViewResult result = controller.AddProduct() as ViewResult;
@@ -94,10 +100,11 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
             };
 
             var productViewModel = new ProductViewModel(productModel);
+            var categoryServiceMock = new Mock<ICategoryService>();
 
             productsServiceMock.Setup(m => m.GetById(productModel.Id)).Returns(productModel);
 
-            ProductsController productsController = new ProductsController(productsServiceMock.Object);
+            ProductsController productsController = new ProductsController(productsServiceMock.Object, categoryServiceMock.Object);
 
             //Act & Assert
             productsController

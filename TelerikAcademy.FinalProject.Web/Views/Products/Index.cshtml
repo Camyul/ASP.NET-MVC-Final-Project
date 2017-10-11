@@ -1,8 +1,12 @@
 ﻿@using TelerikAcademy.FinalProject.Web.Models.Home
-@model ICollection<ProductViewModel>
+@using TelerikAcademy.FinalProject.Web.Models.Category
+@*@model ICollection<ProductViewModel>*@
+
 
 @{
     ViewBag.Title = "Products Page";
+    List<ProductViewModel> products = ViewData["products"] as List<ProductViewModel>;
+    List<CategoriesNavigationViewModel> categories = ViewData["categories"] as List<CategoriesNavigationViewModel>;
 }
 
 @*<div id="search">
@@ -14,14 +18,15 @@
 </div>*@
 <div id="product-container">
     <div id="categories">
-        <p>Listofcategories</p>
+        <p class="text-center">Categories</p>
+        @Html.Partial("_CategoriesPartial", categories)
     </div>
     <div id="products">
         <div class="row">
             <div class="latest-recipes row eq-height">
                 <h3 class="col-sm-12" id="enjoy">All Products</h3>
                 <div class="col-sm-12 eq-height">
-                    @foreach (var product in Model)
+                    @foreach (var product in products)
                     {
                         @Html.Partial("_ProductPreviewPartial", product)
                     }
