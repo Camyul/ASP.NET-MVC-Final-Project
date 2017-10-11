@@ -1,7 +1,57 @@
 ﻿@using TelerikAcademy.FinalProject.Web.Models.Home
+@using TelerikAcademy.FinalProject.Web.Infrastructure.Helpers
 @model ProductViewModel
 
-@Html.DisplayForModel()
+@{
+    ViewBag.Title = "ProductDetails";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (@Html.BeginForm("", "", new { id = @Model.Id }, FormMethod.Post, new { @class = "form-group", id = @Model.Id, role = "form", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="row" style="border:1px, solid, black">
+        <div class="col-md-12"><h3 class="text-center">@Model.Name</h3></div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-md-5">
+            <img id="image-details" src="@Url.Content(@Model.PictureUrl)" class="img-responsive" alt="pic" style="width:400px" />
+        </div>
+        <div class="col-md-7">
+            <hr />
+            <div class="row" style="border:1px, solid, black">
+                <div class="col-md-6">@Model.LongDescription</div>
+                <div class="col-md-6"></div>
+            </div>
+            <hr />
+            <div class="row" style="border:1px, solid, black">
+                <div class="col-md-6">Цена: @Model.Price €.</div>
+                <div class="col-md-6"></div>
+            </div>
+            <div class="row" style="border:1px, solid, black">
+                <div class="col-md-6">
+                    @Html.EditorFor(m => m.Quantity)
+                </div>
+            </div>
+            <br />
+            <br />
+            <div>
+                @*@Html.ActionLink("Поръчай", "MyCart", "ShoppingCart", null, new { id = Model.Id })*@
+                @Html.Submit(new { value = "Order" })
+            </div>
+
+        </div>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@*@Html.DisplayForModel()
 <div>
     @Html.ActionLink("Back to All Products", "Index")
-</div>
+</div>*@

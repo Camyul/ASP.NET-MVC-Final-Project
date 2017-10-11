@@ -238,6 +238,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Helpers\HtmlExtentions.cs" />
     <Compile Include="Infrastructure\IHaveCustomMappings.cs" />
     <Compile Include="Infrastructure\IMapFrom.cs" />
     <Compile Include="Infrastructure\QueryableExtensions.cs" />
