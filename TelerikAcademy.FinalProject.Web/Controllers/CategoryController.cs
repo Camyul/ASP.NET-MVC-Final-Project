@@ -38,7 +38,7 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
 
             this.categoryService.AddCategory(category);
 
-            return RedirectToAction("AddCategory", "Category");
+            return RedirectToAction("Index", "Products");
         }
 
         [ChildActionOnly]

@@ -8,19 +8,23 @@ using TelerikAcademy.FinalProject.Data.Repositories;
 namespace TelerikAcademy.FinalProject.Web.Tests.Data.EfRepository
 {
     [TestFixture]
-    public class Constructor_Should
+    public class AllAndDeleted_Should
     {
         [Test]
-        public void WorkCorrectly_IfDbContextPassedIsValid()
+        public void ReturnValue_WhenInvoced()
         {
             // Arrange
             var mockedDbContext = new Mock<MsSqlDbContext>();
+            var mockedModel = new Mock<DbSet<Category>>();
 
-            // Act
+            mockedDbContext.Setup(x => x.Set<Category>()).Returns(mockedModel.Object);
             var mockedDbSet = new EfRepository<Category>(mockedDbContext.Object);
 
+            // Act
+            var result = mockedDbSet.AllAndDeleted;
+
             // Assert
-            Assert.That(mockedDbSet, Is.Not.Null);
+            Assert.NotNull(result);
         }
     }
 }
