@@ -24,7 +24,8 @@ namespace TelerikAcademy.FinalProject.Services
 
         public IQueryable<Category> GetAllCategoriesSortedByName()
         {
-           var result = this.categoriesRepo.All;
+           var result = this.categoriesRepo.All
+                                .OrderBy(x => x.Name);
 
             return result;
          

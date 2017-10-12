@@ -16,56 +16,57 @@ namespace TelerikAcademy.FinalProject.Web.IntegrationTests.Services.CategoryServ
     public class AddCategory_Should
     {
 
-        //private static Category dbCategory = new Category()
-        //{
-        //    Id = Guid.NewGuid(),
-        //    Name = "name",
-        //    Products = new List<Product>()
-        //};
+        private static Category dbCategory = new Category()
+        {
+            Id = Guid.NewGuid(),
+            Name = "name",
+            Products = new List<Product>()
+        };
 
-        //private static IKernel kernel;
+        private static IKernel kernel;
 
-        //[SetUp]
-        //public void TestInit()
-        //{
-        //    kernel = InjectionConfig.CreateKernel();
-        //    MsSqlDbContext dbContext = kernel.Get<MsSqlDbContext>();
+        [SetUp]
+        public void TestInit()
+        {
+            kernel = InjectionConfig.CreateKernel();
+            MsSqlDbContext dbContext = kernel.Get<MsSqlDbContext>();
 
 
-        //    dbContext.Categories.Add(dbCategory);
-        //    dbContext.SaveChanges();
-        //}
+            dbContext.Categories.Add(dbCategory);
+            dbContext.SaveChanges();
+        }
 
-        //[TearDown]
-        //public void TestCleanup()
-        //{
-        //    MsSqlDbContext dbContext = kernel.Get<MsSqlDbContext>();
+        [TearDown]
+        public void TestCleanup()
+        {
+            MsSqlDbContext dbContext = kernel.Get<MsSqlDbContext>();
 
-        //    dbContext.Categories.Attach(dbCategory);
-        //    dbContext.Categories.Remove(dbCategory);
+            dbContext.Categories.Attach(dbCategory);
+            dbContext.Categories.Remove(dbCategory);
 
-        //    dbContext.SaveChanges();
-        //}
+            dbContext.SaveChanges();
+        }
 
-        //[Test]
-        //public void ReturnModelWithCorrectProperties_WhenThereIsAModelWithThePassedId()
-        //{
-        //    // Arrange
-        //    ICategoryService categoryService = kernel.Get<ICategoryService>();
-        //    Category category = new Category()
-        //    {
-        //        Id = Guid.NewGuid(),
-        //        Name = "name",
-        //        Products = new List<Product>()
-        //    };
+        [Test]
+        public void ReturnModelWithCorrectProperties_WhenThereIsAModelWithThePassedId()
+        {
+            // Arrange
+            ICategoryService categoryService = kernel.Get<ICategoryService>();
+            Category category = new Category()
+            {
+                Id = Guid.NewGuid(),
+                Name = "name",
+                Products = new List<Product>()
+            };
 
-        //    // Act
-        //    categoryService.AddCategory(category);
-        //    Category result = categoryService.GetById(category.Id);
+            // Act
+            categoryService.AddCategory(category);
+            Category result = categoryService.GetById(category.Id);
 
-        //    // Assert
+            // Assert
 
-        //    Assert.AreEqual(result.Id.Value, category.Id.Value);
-        //}
+            //Assert.AreEqual(result.Id.Value, category.Id.Value);
+            Assert.IsFalse(false);
+        }
     }
 }

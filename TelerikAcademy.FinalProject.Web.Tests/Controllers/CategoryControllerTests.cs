@@ -10,6 +10,7 @@ using TelerikAcademy.FinalProject.Data.Model;
 using TelerikAcademy.FinalProject.Services.Contracts;
 using TelerikAcademy.FinalProject.Web.Controllers;
 using TelerikAcademy.FinalProject.Web.Models.Category;
+using TestStack.FluentMVCTesting;
 
 namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
 {
@@ -65,5 +66,24 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
+        [Test]
+        public void CategoriesNavigationShould_ReturnsView()
+        {
+            //Arrange
+            var categoryServiceMock = new Mock<ICategoryService>();
+            IEnumerable<Category> categoryList = new List<Category>();
+            //categoryServiceMock.Setup(c => c.GetAllCategoriesSortedByName()).Returns(null);
+
+
+            // Act
+            CategoryController controller = new CategoryController(categoryServiceMock.Object);
+
+
+            //  Assert
+            controller
+                .WithCallTo(c => c.CategoriesNavigation())
+                .ShouldRenderPartialView("_CategoriesPartial");
+        }
+
     }
 }
