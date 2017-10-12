@@ -2,4 +2,13 @@ version: 1.0.{build}
 before_build:
 - ps: nuget restore
 build:
+  project: TelerikAcademy.FinalProject.sln
   verbosity: minimal
+deploy:
+- provider: AzureWebJob
+  appservice_environment: false
+  website: finalproject-onlinestore
+  username: final-project-user-admin
+  password:
+    secure: ONHQFXFcK+OInmeaeS4x5A==
+  job_name: Deploy
