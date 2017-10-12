@@ -61,6 +61,10 @@ footer #footer {
     align-items: center;
 }
 
+#add-product {
+    display: inline-block;
+}
+
 
 /*Carousel - Start*/
 

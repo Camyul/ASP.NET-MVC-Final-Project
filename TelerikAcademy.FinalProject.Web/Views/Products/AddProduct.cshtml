@@ -1,15 +1,56 @@
 ﻿@using TelerikAcademy.FinalProject.Web.Models.Home
-@model ProductViewModel
+@*@model ProductViewModel*@
+@using TelerikAcademy.FinalProject.Web.Models.Category
+@model CategoryViewModel
 
-@using (Html.BeginForm())
+@{
+    ViewBag.Title = "Products Page";
+    ProductViewModel product = ViewData["product"] as ProductViewModel;
+    List<CategoriesNavigationViewModel> categories = ViewData["categories"] as List<CategoriesNavigationViewModel>;
+}
+
+
+@using (Html.BeginForm("AddProduct", "Products", FormMethod.Post))
 {
-    @Html.ValidationSummary()
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    @Html.EditorForModel(Model);
-    <input type="submit" class="btn btn-success" value="Add" />
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+
+            <p>Add new Product</p>
+            <p>
+                @Html.Label("Name: ", new { @class = "control-label" })
+                @Html.TextBox("Name", null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => product.Name)
+            </p>
+            <p>
+                @Html.Label("Category", new { @class = "control-label" })
+                @Html.DropDownList("Category", new SelectList(categories, "Id", "Name"), new { @class = "form-control"})
+               
+            </p>
+            <p>
+                @Html.Label("Short Description", new { @class = "control-label" })
+                @Html.TextBox("Description", null, new { @class = "form-control" })
+            </p>
+            <p>
+                @Html.Label("Long Description", new { @class = "control-label" })
+                @Html.TextBox("LongDescription", null, new { @class = "form-control" })
+            </p>
+            <p>
+                @Html.Label("Picture url", new { @class = "control-label" })
+                @Html.TextBox("PictureUrl", null, new { @class = "form-control" })
+            </p>
+            <p>
+                @Html.Label("Quantity", new { @class = "control-label" })
+                @Html.TextBox("Quantity", null, new { @class = "form-control" })
+            </p>
+            <p>
+                @Html.Label("Price", new { @class = "control-label" })
+                @Html.TextBox("Price", null, new { @class = "form-control" })
+            </p>
+            <p>
+                <input type="submit" class="btn btn-success" value="Add" name="@product" />
+            </p>
 }
 
 @section Scripts {
-    @Scripts.Render("~bundles/jqueryval")
-    } 
+    @Scripts.Render("~/bundles/jqueryval")
+}

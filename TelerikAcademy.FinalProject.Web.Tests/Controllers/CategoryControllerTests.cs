@@ -38,7 +38,7 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
         }
 
         [Test]
-        public void AddProductShould_InvocedAddCategory()
+        public void AddCategoryShould_InvocedAddCategory()
         {
             //Arrange
             var categoryServiceMock = new Mock<ICategoryService>();

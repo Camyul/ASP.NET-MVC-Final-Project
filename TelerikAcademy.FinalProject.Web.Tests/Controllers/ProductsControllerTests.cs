@@ -58,7 +58,8 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
             var productServiceMock = new Mock<IProductsService>();
             var categoryServiceMock = new Mock<ICategoryService>();
             ProductsController controller = new ProductsController(productServiceMock.Object, categoryServiceMock.Object);
-            Product product = new Product();
+            Category category = new Category();
+            Product product = new Product() { Category = category};
             ProductViewModel viewModel = new ProductViewModel(product);
 
             // Act
@@ -94,6 +95,8 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
                 Id = Guid.NewGuid(),
                 Name = "name",
                 Description = "descr",
+                Category = new Category(),
+                LongDescription = "sdkijs",
                 Quantity = 3,
                 PictureUrl = "picUrl",
                 Price = 5.55M,

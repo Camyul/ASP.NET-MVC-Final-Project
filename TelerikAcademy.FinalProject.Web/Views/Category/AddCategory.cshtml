@@ -3,13 +3,15 @@
 
 @using (Html.BeginForm())
 {
-    @Html.ValidationSummary()
+
+    <label>Add new Category</label>
     @Html.AntiForgeryToken()
     @Html.ValidationSummary("", new { @class = "text-danger" })
-    @Html.EditorForModel(Model);
+    @Html.TextBoxFor(m => Model.Name, null, new { @class = "form-control", placeholder = "Name" })
+    @Html.ValidationMessageFor(m => Model.Name)
     <input type="submit" class="btn btn-success" value="Add" />
 }
 
 @section Scripts {
-    @Scripts.Render("~bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryval")
 } 

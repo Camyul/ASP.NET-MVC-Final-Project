@@ -51,7 +51,7 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
             {
                 viewCategory.Add(new CategoriesNavigationViewModel(cat));
             }
-            //ViewBag.Categories = viewCategory;
+           
             ViewData["categories"] = viewCategory;
             ViewData["products"] = products;
 
@@ -71,8 +71,22 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
         public ActionResult AddProduct()
         {
             var product = new ProductViewModel();
-            
-            return View(product);
+
+            var categories = this.categiryService.GetAllCategoriesSortedByName()
+               // .Select(x => new CategoriesNavigationViewModel(x))
+               .ToList();
+
+            var viewCategory = new List<CategoriesNavigationViewModel>();
+
+            foreach (var cat in categories)
+            {
+                viewCategory.Add(new CategoriesNavigationViewModel(cat));
+            }
+
+            ViewData["categories"] = viewCategory;
+            ViewData["product"] = product;
+
+            return View();
         }
 
         [HttpPost]
@@ -84,6 +98,8 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
                 PictureUrl = productModel.PictureUrl,
                 Name = productModel.Name,
                 Description = productModel.Description,
+                LongDescription = productModel.LongDescription,
+                CategoryId = productModel.Category,
                 Price = productModel.Price,
                 Quantity = productModel.Quantity
             };
