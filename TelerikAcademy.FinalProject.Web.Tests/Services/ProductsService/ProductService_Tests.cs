@@ -99,5 +99,22 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Services.ProductsService
             // Assert
             EfRepositoryStub.Verify(x => x.All, Times.Once);
         }
+
+        [Test]
+        public void FilterByName_Should_InvocedRepository_All()
+        {
+
+            // Arrange
+            var EfRepositoryStub = new Mock<IEfRepository<Product>>();
+            var SaveContextStub = new Mock<ISaveContext>();
+            var productsServiceMock = new TelerikAcademy.FinalProject.Services.ProductsService(EfRepositoryStub.Object, SaveContextStub.Object);
+            
+
+            // Act
+            productsServiceMock.GetByName("a");
+
+            // Assert
+            EfRepositoryStub.Verify(x => x.All, Times.Once);
+        }
     }
 }

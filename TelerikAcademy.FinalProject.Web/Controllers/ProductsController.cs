@@ -162,29 +162,5 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
                 return this.PartialView("_FilteredProductsPartial", viewProducts);
             }
         }
-
-        //[HttpGet]
-        //public ActionResult Search()
-        //{
-        //    return this.View(new List<ProductViewModel>());
-        //}
-        //[HttpPost]
-        //public ActionResult Search(string searchName)
-        //{
-        //    var products = this.productsService
-        //        .GetAll()
-        //        .OrderByDescending(x => x.CreatedOn)
-        //        .Select(x => new ProductViewModel()
-        //        {
-        //            PictureUrl = x.PictureUrl,
-        //            Name = x.Name,
-        //            Description = x.Description,
-        //            Price = x.Price
-        //        })
-        //        .Where(x => x.Name.ToLower().Contains(searchName.ToLower()))
-        //        .ToList();
-
-        //    return View(products);
-        //}
     }
 }

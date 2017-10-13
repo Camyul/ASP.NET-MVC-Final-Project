@@ -143,59 +143,43 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
             Assert.NotNull(result);
         }
 
-        //[Test]
-        //public void DetailsShould_ReturnViewWithEmptyModel_WhenThereNoModelWithThePassedId()
-        //{
-        //    // Arrange
-        //    var productsServiceMock = new Mock<IProductsService>();
+        [Test]
+        public void FilteredProducts_ReturnsPartialView_WhenPassedValidString()
+        {
+            //Arrange
+            var productsServiceMock = new Mock<IProductsService>();
+            var categoryServiceMock = new Mock<ICategoryService>();
+            string searchName = "test";
 
-        //    var productViewModel = new ProductViewModel();
+            // Act
+            ProductsController controller = new ProductsController(productsServiceMock.Object, categoryServiceMock.Object);
 
-        //    Guid? productId = Guid.NewGuid();
-        //    productsServiceMock.Setup(m => m.GetById(productId.Value)).Returns((Product)null);
+    
+
+
+            //  Assert
+            controller
+                .WithCallTo(c => c.FilteredProducts(searchName))
+                .ShouldRenderPartialView("_FilteredProductsPartial");
+        }
+
+        [Test]
+        public void FilteredProducts_ReturnsView_WhenPassedValidString()
+        {
+            //Arrange
+            var productsServiceMock = new Mock<IProductsService>();
+            var categoryServiceMock = new Mock<ICategoryService>();
+
+            // Act
+            ProductsController controller = new ProductsController(productsServiceMock.Object, categoryServiceMock.Object);
 
 
 
-        //    ProductsController bookController = new ProductsController(productsServiceMock.Object);
 
-        //    //Act & Assert
-
-        //    bookController
-        //        .WithCallTo(b => b.Details(productId.Value))
-        //        .ShouldRenderDefaultView()
-        //        .WithModel<ProductViewModel>(viewModel =>
-        //        {
-        //            Assert.IsNull(viewModel.Name);
-        //            Assert.IsNull(viewModel.Quantity);
-        //            Assert.IsNull(viewModel.PictureUrl);
-        //            Assert.IsNull(viewModel.Price);
-        //        });
-        //}
-
-        //[Test]
-        //public void DetailsShould_ReturnViewWithEmptyModel_WhenParameterIsNull()
-        //{
-        //    var productsServiceMock = new Mock<IProductsService>();
-
-        //    var productViewModel = new ProductViewModel();
-
-        //    Guid? productId = Guid.NewGuid();
-        //    productsServiceMock.Setup(m => m.GetById(null)).Returns((Product)null);
-
-        //    ProductsController bookController = new ProductsController(productsServiceMock.Object);
-
-        //    // Act & Assert
-
-        //    bookController
-        //        .WithCallTo(b => b.Details(productId.Value))
-        //        .ShouldRenderDefaultView()
-        //        .WithModel<ProductViewModel>(viewModel =>
-        //        {
-        //            Assert.IsNull(viewModel.Name);
-        //            Assert.IsNull(viewModel.Quantity);
-        //            Assert.IsNull(viewModel.PictureUrl);
-        //            Assert.IsNull(viewModel.Price);
-        //        });
-        //}
+            //  Assert
+            controller
+                .WithCallTo(c => c.FilteredProducts(null))
+                .ShouldRenderDefaultView();
+        }
     }
 }
