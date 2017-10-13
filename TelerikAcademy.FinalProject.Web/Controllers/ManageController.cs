@@ -8,6 +8,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using TelerikAcademy.FinalProject.Web.Models;
 using TelerikAcademy.FinalProject.Web.Contracts;
+using Bytes2you.Validation;
 
 namespace TelerikAcademy.FinalProject.Web.Controllers
 {
@@ -19,6 +20,9 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
 
         public ManageController(ISignInService signInService, IUserService userService)
         {
+            Guard.WhenArgument(signInService, "signInService").IsNull().Throw();
+            Guard.WhenArgument(userService, "userService").IsNull().Throw();
+
             this.signInService = signInService;
             this.userService = userService;
         }

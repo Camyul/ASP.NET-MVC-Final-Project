@@ -127,6 +127,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountControllerTests.cs" />
     <Compile Include="Controllers\CategoryControllerTests.cs" />
+    <Compile Include="Controllers\ManageControllerTests.cs" />
     <Compile Include="Controllers\ProductsControllerTests.cs" />
     <Compile Include="Data\DbContextTests\Constructor_Should.cs" />
     <Compile Include="Data\DbContextTests\Create_Should.cs" />
