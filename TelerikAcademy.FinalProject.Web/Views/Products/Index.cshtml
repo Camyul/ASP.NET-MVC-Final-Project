@@ -8,14 +8,7 @@
     List<CategoriesNavigationViewModel> categories = ViewData["categories"] as List<CategoriesNavigationViewModel>;
 }
 
-@*<div id="search">
-    @using (@Html.BeginForm()) 
-    {
-        <input class="form-control-inline" type="text" name="searchName" />
-        <input class="form-control-inline btn btn-info" type="submit" value="Search" name="search"/>
-    }
-</div>*@
-<div class="panel">
+<div class="search">
     @using (Ajax.BeginForm("FilteredProducts", new { }, new AjaxOptions()
     {
         HttpMethod = "Post",
@@ -23,9 +16,12 @@
         InsertionMode = InsertionMode.Replace,
     }, new { id = "ajaxForm" }))
     {
-        <input type="text" name="searchName" />
+        <div class="form-group has-feedback">
+            <input type="text" class="form-control" placeholder="Search" id="inputSuccess2" name="searchName" />
+        </div>
     }
 </div>
+    
 
 <div id="product-container">
     <div id="categories">
