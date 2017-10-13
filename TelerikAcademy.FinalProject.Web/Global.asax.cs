@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Reflection;
-using System.Web;
+﻿using System.Data.Entity;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using TelerikAcademy.FinalProject.Data;
 using TelerikAcademy.FinalProject.Data.Migrations;
-using TelerikAcademy.FinalProject.Web.App_Start;
 
 namespace TelerikAcademy.FinalProject.Web
 {
@@ -24,8 +18,8 @@ namespace TelerikAcademy.FinalProject.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            var mapper = new AutoMapperConfig();
-            mapper.Execute(Assembly.GetExecutingAssembly());
+            //var mapper = new AutoMapperConfig();
+            //mapper.Execute(Assembly.GetExecutingAssembly());
         }
     }
 }

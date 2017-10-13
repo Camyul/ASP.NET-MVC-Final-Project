@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Bytes2you.Validation;
 
 namespace TelerikAcademy.FinalProject.Data.SaveContext
 {
@@ -12,6 +8,8 @@ namespace TelerikAcademy.FinalProject.Data.SaveContext
 
         public SaveContext(MsSqlDbContext context)
         {
+            Guard.WhenArgument(context, "Db context is null!").IsNull().Throw();
+
             this.context = context;
         }
 
