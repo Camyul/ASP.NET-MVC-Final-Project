@@ -1,56 +1,30 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
+﻿using Bytes2you.Validation;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using TelerikAcademy.FinalProject.Web.Models;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 using TelerikAcademy.FinalProject.Data.Model;
+using TelerikAcademy.FinalProject.Web.App_Start.Manager;
+using TelerikAcademy.FinalProject.Web.Contracts;
+using TelerikAcademy.FinalProject.Web.Models;
 
 namespace TelerikAcademy.FinalProject.Web.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
-        private ApplicationSignInManager _signInManager;
-        private ApplicationUserManager _userManager;
+        private readonly ISignInService signInService;
+        private readonly IUserService userService;
 
-        public AccountController()
+        public AccountController(ISignInService signInService, IUserService userService)
         {
-        }
+            Guard.WhenArgument(signInService, "signInService").IsNull().Throw();
+            Guard.WhenArgument(userService, "userService").IsNull().Throw();
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
-        {
-            UserManager = userManager;
-            SignInManager = signInManager;
-        }
-
-        public ApplicationSignInManager SignInManager
-        {
-            get
-            {
-                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
-            }
-            private set 
-            { 
-                _signInManager = value; 
-            }
-        }
-
-        public ApplicationUserManager UserManager
-        {
-            get
-            {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            }
-            private set
-            {
-                _userManager = value;
-            }
+            this.signInService = signInService;
+            this.userService = userService;
         }
 
         //
@@ -76,7 +50,7 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await this.signInService.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -153,10 +127,10 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
             if (ModelState.IsValid)
             {
                 var user = new User { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
+                var result = await this.userService.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    await this.signInService.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
@@ -408,16 +382,14 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
         {
             if (disposing)
             {
-                if (_userManager != null)
+                if (this.signInService != null)
                 {
-                    _userManager.Dispose();
-                    _userManager = null;
+                    this.signInService.Dispose();
                 }
 
-                if (_signInManager != null)
+                if (this.signInService != null)
                 {
-                    _signInManager.Dispose();
-                    _signInManager = null;
+                    this.signInService.Dispose();
                 }
             }
 

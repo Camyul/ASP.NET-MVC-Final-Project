@@ -8,6 +8,7 @@ using Owin;
 using TelerikAcademy.FinalProject.Web.Models;
 using TelerikAcademy.FinalProject.Data.Model;
 using TelerikAcademy.FinalProject.Data;
+using TelerikAcademy.FinalProject.Web.App_Start.Manager;
 
 namespace TelerikAcademy.FinalProject.Web
 {

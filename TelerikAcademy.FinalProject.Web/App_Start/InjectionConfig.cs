@@ -17,6 +17,9 @@ namespace TelerikAcademy.FinalProject.Web.App_Start
     using TelerikAcademy.FinalProject.Services.Contracts;
     using Data.SaveContext;
     using AutoMapper;
+    using Contracts;
+    using Manager;
+    using Microsoft.AspNet.Identity.Owin;
 
     public static class InjectionConfig 
     {
@@ -88,6 +91,9 @@ namespace TelerikAcademy.FinalProject.Web.App_Start
             kernel.Bind(typeof(IEfRepository<>)).To(typeof(EfRepository<>));
             kernel.Bind<ISaveContext>().To<SaveContext>();
             kernel.Bind<IMapper>().ToMethod(x => Mapper.Instance).InSingletonScope();
+
+            kernel.Bind<ISignInService>().ToMethod(_ => HttpContext.Current.GetOwinContext().Get<ApplicationSignInManager>());
+            kernel.Bind<IUserService>().ToMethod(_ => HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>());
 
         }        
     }
