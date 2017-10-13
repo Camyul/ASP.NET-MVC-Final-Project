@@ -338,6 +338,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TelerikAcademy.FinalProject.Common.Constant\TelerikAcademy.FinalProject.Common.Constant.csproj">
+      <Project>{ED9D8960-F341-4B99-ABC1-74198A99C75E}</Project>
+      <Name>TelerikAcademy.FinalProject.Common.Constant</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TelerikAcademy.FinalProject.Data.Model\TelerikAcademy.FinalProject.Data.Model.csproj">
       <Project>{562906AA-3D38-479A-A3A5-243D262A1909}</Project>
       <Name>TelerikAcademy.FinalProject.Data.Model</Name>
