@@ -15,6 +15,18 @@
         <input class="form-control-inline btn btn-info" type="submit" value="Search" name="search"/>
     }
 </div>*@
+<div class="panel">
+    @using (Ajax.BeginForm("FilteredProducts", new { }, new AjaxOptions()
+    {
+        HttpMethod = "Post",
+        UpdateTargetId = "products",
+        InsertionMode = InsertionMode.Replace,
+    }, new { id = "ajaxForm" }))
+    {
+        <input type="text" name="searchName" />
+    }
+</div>
+
 <div id="product-container">
     <div id="categories">
         <p class="text-center">Categories</p>
@@ -34,3 +46,13 @@
         </div>
     </div>
 </div>
+
+@section scripts {
+    <script>
+        $(function () {
+            $('[name="searchName"]').keyup(function () {
+                $('#ajaxForm').submit()
+            })
+        })
+    </script>
+}

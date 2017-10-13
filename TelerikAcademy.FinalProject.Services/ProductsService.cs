@@ -27,6 +27,13 @@ namespace TelerikAcademy.FinalProject.Services
             return this.productsRepo.All;
         }
 
+        public IQueryable<Product> GetByName(string searchName)
+        {
+            return string.IsNullOrEmpty(searchName) ? this.productsRepo.All
+                                                    : this.productsRepo.All
+                                                    .Where(p => p.Name.Contains(searchName));
+        }
+
         public IQueryable<Product> GetByCategory(Guid? id)
         {
             return this.productsRepo.All

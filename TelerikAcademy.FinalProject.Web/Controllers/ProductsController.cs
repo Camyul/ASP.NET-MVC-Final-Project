@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using TelerikAcademy.FinalProject.Data.Model;
 using TelerikAcademy.FinalProject.Services.Contracts;
+using TelerikAcademy.FinalProject.Web.Infrastructure;
 using TelerikAcademy.FinalProject.Web.Models.Category;
 using TelerikAcademy.FinalProject.Web.Models.Home;
 
@@ -138,6 +139,29 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
             return RedirectToAction("Index", "Products");
         }
 
+        [HttpPost]
+        [AjaxOnly]
+        public ActionResult FilteredProducts(string searchName)
+        {
+
+            if (string.IsNullOrEmpty(searchName))
+            {
+                return this.Index();
+            }
+            else
+            {
+                var filteredProducts = this.productsService.GetByName(searchName).ToList();
+
+                var viewProducts = new List<ProductViewModel>();
+                foreach (var product in filteredProducts)
+                {
+
+                    viewProducts.Add(new ProductViewModel(product));
+                }
+
+                return this.PartialView("_FilteredProductsPartial", viewProducts);
+            }
+        }
 
         //[HttpGet]
         //public ActionResult Search()

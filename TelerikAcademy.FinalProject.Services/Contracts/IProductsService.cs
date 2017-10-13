@@ -8,6 +8,8 @@ namespace TelerikAcademy.FinalProject.Services.Contracts
     {
         IQueryable<Product> GetAll();
 
+        IQueryable<Product> GetByName(string searchName);
+
         Product GetById(Guid? id);
 
         IQueryable<Product> GetByCategory(Guid? id);

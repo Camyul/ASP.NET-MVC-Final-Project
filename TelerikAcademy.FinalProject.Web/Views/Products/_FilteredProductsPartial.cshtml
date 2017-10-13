@@ -1,0 +1,13 @@
+﻿@using TelerikAcademy.FinalProject.Web.Models.Home
+@model IEnumerable<ProductViewModel>
+
+@foreach (var product in Model)
+{
+        <div class="col-lg-3 col-md-6 col-sm-12 container product-view">
+            <img class="product-img" src="@product.PictureUrl" />
+            <h2>@product.Name</h2>
+            <p>@product.Description</p>
+            <p class="btn btn-info">@Html.ActionLink("Go To Details", "Details", "Products", new { id = product.Id }, null)</p>
+            <h4>@string.Format("{0}€.", product.Price)</h4>
+        </div>
+}
