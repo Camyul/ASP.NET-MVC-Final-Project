@@ -1,6 +1,7 @@
 ﻿using Moq;
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using TelerikAcademy.FinalProject.Data.Model;
 using TelerikAcademy.FinalProject.Services.Contracts;
@@ -123,6 +124,25 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
                 });
         }
 
+        [Test]
+        public void ProductsByCategory_ReturnsView()
+        {
+            //Arrange
+            var productsServiceMock = new Mock<IProductsService>();
+            var categoryServiceMock = new Mock<ICategoryService>();
+            IEnumerable<Product> categoryList = new List<Product>();
+            var category = new Category();
+
+            // Act
+            ProductsController controller = new ProductsController(productsServiceMock.Object, categoryServiceMock.Object);
+
+            ViewResult result = controller.ProductsByCategory(category.Id.Value) as ViewResult;
+
+            //  Assert
+
+            Assert.NotNull(result);
+        }
+
         //[Test]
         //public void DetailsShould_ReturnViewWithEmptyModel_WhenThereNoModelWithThePassedId()
         //{
@@ -134,7 +154,7 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
         //    Guid? productId = Guid.NewGuid();
         //    productsServiceMock.Setup(m => m.GetById(productId.Value)).Returns((Product)null);
 
-      
+
 
         //    ProductsController bookController = new ProductsController(productsServiceMock.Object);
 

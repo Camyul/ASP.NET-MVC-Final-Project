@@ -27,6 +27,13 @@ namespace TelerikAcademy.FinalProject.Services
             return this.productsRepo.All;
         }
 
+        public IQueryable<Product> GetByCategory(Guid? id)
+        {
+            return this.productsRepo.All
+                        .Where(c => c.CategoryId == id)
+                        .OrderBy(c => c.Name);
+        }
+
         public Product GetById(Guid? id)
         {
             Product result = null;

@@ -30,6 +30,7 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Services.ProductsService
             EfRepositoryStub.Verify(x => x.All, Times.Once);
         }
 
+
         [Test]
         public void Update_Should_InvocedRepository_Update()
         {
@@ -80,6 +81,23 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Services.ProductsService
 
             // Assert
             Assert.IsNull(productModel);
+        }
+
+        [Test]
+        public void GetByCategory_Should_InvocedRepository_All()
+        {
+
+            // Arrange
+            var EfRepositoryStub = new Mock<IEfRepository<Product>>();
+            var SaveContextStub = new Mock<ISaveContext>();
+            var productsServiceMock = new TelerikAcademy.FinalProject.Services.ProductsService(EfRepositoryStub.Object, SaveContextStub.Object);
+            var category = new Category();
+
+            // Act
+            productsServiceMock.GetByCategory(category.Id.Value);
+
+            // Assert
+            EfRepositoryStub.Verify(x => x.All, Times.Once);
         }
     }
 }

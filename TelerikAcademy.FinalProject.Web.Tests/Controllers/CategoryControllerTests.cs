@@ -66,6 +66,7 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
+
         [Test]
         public void CategoriesNavigationShould_ReturnsView()
         {
@@ -84,6 +85,5 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
                 .WithCallTo(c => c.CategoriesNavigation())
                 .ShouldRenderPartialView("_CategoriesPartial");
         }
-
     }
 }

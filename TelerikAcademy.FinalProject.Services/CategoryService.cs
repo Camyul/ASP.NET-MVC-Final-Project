@@ -28,7 +28,6 @@ namespace TelerikAcademy.FinalProject.Services
                                 .OrderBy(x => x.Name);
 
             return result;
-         
         }
 
         public Category GetById(Guid? id)

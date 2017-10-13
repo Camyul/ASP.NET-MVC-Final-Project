@@ -10,6 +10,8 @@ namespace TelerikAcademy.FinalProject.Services.Contracts
 
         Product GetById(Guid? id);
 
+        IQueryable<Product> GetByCategory(Guid? id);
+
         void AddProduct(Product product);
 
         void Update(Product product);

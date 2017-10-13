@@ -1,7 +1,7 @@
 ﻿#product-container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     background: #ececec;
 }
 .product-img {
@@ -15,6 +15,9 @@
     font-weight:bold;
     font-size: 20px;
     color: darkblue;
+}
+#categories {
+    width: 15%;
 }
 
 #products {
@@ -36,18 +39,23 @@
     display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#product-view {
+    
 }
 
 @media (max-width: 600px) {
     .carousel-caption {
         display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
     }
-    .latest-recipes {
+    .latest-products {
         width: 100%;
     }
 }
 
-.latest-recipes {
+.latest-products {
     width: 90%;
     margin: 0 auto;
     background: #ececec;

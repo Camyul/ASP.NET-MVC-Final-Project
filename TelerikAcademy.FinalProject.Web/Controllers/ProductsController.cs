@@ -67,6 +67,35 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
             return this.View(viewModel);
         }
 
+        public ActionResult ProductsByCategory(Guid? id)
+        {
+            Guard.WhenArgument(id, "Category Id").IsNull().Throw();
+            
+            var products = this.productsService
+                            .GetByCategory(id)
+                            .ToList();
+
+            var categories = this.categiryService.GetAllCategoriesSortedByName()
+                .ToList();
+
+            var viewCategory = new List<CategoriesNavigationViewModel>();
+            foreach (var cat in categories)
+            {
+                viewCategory.Add(new CategoriesNavigationViewModel(cat));
+            }
+
+            var viewProducts = new List<ProductViewModel>();
+            foreach (var product in products)
+            {
+                viewProducts.Add(new ProductViewModel(product));
+            }
+
+            ViewData["categories"] = viewCategory;
+            ViewData["products"] = viewProducts;
+
+            return View("Index");
+        }
+
         [HttpGet]
         public ActionResult AddProduct()
         {

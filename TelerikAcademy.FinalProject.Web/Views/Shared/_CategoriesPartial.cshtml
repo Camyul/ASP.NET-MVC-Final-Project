@@ -6,7 +6,7 @@
                 {
                     <li>
                         @*Redirect to products with same category*@
-                        <a href=@Url.Action("CategoryDetails", "Category" , new { id = item.Id.Value })>@item.Name</a>
+                        <a href=@Url.Action("ProductsByCategory", "Products" , new { id = item.Id.Value })>@item.Name</a>
                     </li>
                 }
             </ul>
