@@ -9,9 +9,9 @@ namespace TelerikAcademy.FinalProject.Common.Constant
     public class ValidationConstants
     {
         // Don't mach special symbols and digit, but mach "space" and "-"
-        // public const string EnBgSpaceMinus = @"^[a-zA-Zа-яА-Я\s\-]+$";
+        public const string EnBgSpaceMinus = @"^[a-zA-Zа-яА-Я\s\-]+$";
 
-        //public const string EnBgSpaceMinusDot = @"^[a-zA-Zа-яА-Я\s\-\.]+$";
+        public const string EnBgSpaceMinusDot = @"^[a-zA-Zа-яА-Я\s\-\.]+$";
 
         // Don't mach special symbols, but mach "space" and "-"
         public const string EnBgDigitSpaceMinus = @"^[a-zA-Zа-яА-Я0-9\s\-\.]+$";
@@ -22,7 +22,7 @@ namespace TelerikAcademy.FinalProject.Common.Constant
         public const string DescriptionRegex = @"^[a-zA-Zа-яА-Я0-9\s\-\.,!():;?/+_%@""'#&=\*]+$";
 
         //// sourse http://stackoverflow.com/questions/8908976/c-sharp-regex-to-validate-phone-number
-        //public const string PhoneRegex = @"\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})";
+        public const string PhoneRegex = @"\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})";
 
         //// source https://msdn.microsoft.com/en-us/library/01escwtf(v=vs.110).aspx
         //public const string EmailRegex = @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$";
@@ -37,8 +37,8 @@ namespace TelerikAcademy.FinalProject.Common.Constant
         public const int DescriptionMaxLength = 150;
         public const int LongDescriptionMaxLength = 800;
 
-        //public const int AddressMinLength = 2;
-        //public const int AddressMaxLength = 100;
+        public const int AddressMinLength = 2;
+        public const int AddressMaxLength = 100;
 
         public const int ImageUrlMinLength = 6;
         public const int ImageUrlMaxLength = 300;

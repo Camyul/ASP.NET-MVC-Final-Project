@@ -1,0 +1,47 @@
+﻿@using TelerikAcademy.FinalProject.Web.Areas.Administration.Models.ShoppingCart
+@model List<OrderDetailViewModel>
+
+<table class="table table-responsive">
+    <tr class="well">
+        <th hidden="hidden">Id</th>
+        <th>Product</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Summary</th>
+        <th>Delete</th>
+    </tr>
+    @{
+
+        decimal? sum = 0m;
+        int index = 0;
+
+        foreach (var item in (List<OrderDetailViewModel>)Session["cart"])
+        {
+            <tr>
+                <td hidden="hidden" id=@index>@item.Product.Id</td>
+                <td><img src="@Url.Content(item.Product.PictureUrl)" class="img-responsive" width="40" /></td>
+                <td>
+                    <div>@item.Product.Name</div>
+                </td>
+                <td>@item.Product.Price €.</td>
+                <td>@item.Quantity</td>
+                <td>@(item.Product.Price * item.Quantity)€.</td>
+                <td>
+                    <strong>
+                        @*Add Area Link*@
+                        @Html.ActionLink("  ", "Delete", "ShoppingCart", new { id = @item.Product.Id, index = @index }, new { @class = "text-danger text-right glyphicon glyphicon-remove" })
+                    </strong>
+                </td>
+            </tr>
+            sum += item.Product.Price * item.Quantity;
+            index++;
+        }
+
+        <tr class="well well-lg h5">
+            <td colspan="4" class="text-right"><strong>Total:</strong> </td>
+            <td> <strong>@sum €.</strong></td>
+            <td></td>
+        </tr>
+    }
+</table>

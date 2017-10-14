@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TelerikAcademy.FinalProject.Common.Constant;
 using TelerikAcademy.FinalProject.Data.Model.Abstracts;
 
@@ -12,8 +8,16 @@ namespace TelerikAcademy.FinalProject.Data.Model
 {
     public class OrderDetail : DataModel
     {
+        public OrderDetail()
+        {
+            this.Id = Guid.NewGuid();
+        }
+
+        [Key]
+        public Guid? Id { get; set; }
+
         [ForeignKey("Order")]
-        public int OrderId { get; set; }
+        public Guid? OrderId { get; set; }
 
         public virtual Order Order { get; set; }
 

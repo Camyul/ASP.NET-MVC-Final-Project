@@ -233,6 +233,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Models\ShoppingCart\ContactInfoViewModel.cs" />
+    <Compile Include="Models\ShoppingCart\OrderDetailViewModel.cs" />
     <Compile Include="Contracts\ISignInService.cs" />
     <Compile Include="Contracts\IUserService.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -269,8 +272,16 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Areas\Administration\Views\web.config" />
+    <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\ShoppingCart\_CartItemsPartials.cshtml" />
+    <Content Include="Views\ShoppingCart\CheckOut.cshtml" />
+    <Content Include="Views\ShoppingCart\EmptyCart.cshtml" />
+    <Content Include="Views\ShoppingCart\MyCart.cshtml" />
     <None Include="Properties\PublishProfiles\finalproject-onlinestore - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\finalproject-onlinestore - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\onlinestore-final - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\onlinestore-final - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -330,12 +341,12 @@
     <Content Include="Views\Category\AddCategory.cshtml" />
     <Content Include="Views\Shared\_CategoriesPartial.cshtml" />
     <Content Include="Views\Products\_FilteredProductsPartial.cshtml" />
+    <Content Include="Views\ShoppingCart\Thanks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Controllers\" />
     <Folder Include="Areas\Administration\Models\" />
-    <Folder Include="Areas\Administration\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

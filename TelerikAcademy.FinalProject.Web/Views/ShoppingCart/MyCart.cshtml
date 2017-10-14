@@ -1,0 +1,22 @@
+﻿@using TelerikAcademy.FinalProject.Web.Areas.Administration.Models.ShoppingCart
+@model List<OrderDetailViewModel>
+
+@{
+    ViewBag.Title = "MyCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Products in your cart: @ViewBag.Count</h3>
+<hr />
+<br />
+
+@Html.Partial("_CartItemsPartials", Model)
+
+<div class="row">
+    <div class="col-md-6">
+        <a href="/products" class="btn btn-info">Continue shoping</a>
+    </div>
+    <div class="col-md-6 text-right">
+        <a href="CheckOut" class="btn btn-info">Send Order</a>
+    </div>
+</div>

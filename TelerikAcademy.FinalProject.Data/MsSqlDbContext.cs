@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TelerikAcademy.FinalProject.Data.Model;
 using TelerikAcademy.FinalProject.Data.Model.Contracts;
 
@@ -19,6 +16,9 @@ namespace TelerikAcademy.FinalProject.Data
 
         public IDbSet<Product> Products { get; set; }
         public IDbSet<Category> Categories { get; set; }
+        public IDbSet<Order> Orders { get; set; }
+        public IDbSet<OrderDetail> OrderDetail { get; set; }
+        public IDbSet<ContactInfo> ContactInfos { get; set; }
 
         // Auto filling CreatedOn and ModifiedOn before SaveChanges()
         public override int SaveChanges()

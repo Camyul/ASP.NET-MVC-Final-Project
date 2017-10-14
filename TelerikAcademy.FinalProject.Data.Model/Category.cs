@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using TelerikAcademy.FinalProject.Common.Constant;
@@ -14,9 +15,13 @@ namespace TelerikAcademy.FinalProject.Data.Model
         public Category()
         {
             this.Products = new HashSet<Product>();
+            this.Id = Guid.NewGuid();
             //this.SubCategories = new HashSet<Category>();
         }
-        
+
+        [Key]
+        public Guid? Id { get; set; }
+
 
         [Required]
         [Index(IsUnique = true)]
@@ -25,19 +30,30 @@ namespace TelerikAcademy.FinalProject.Data.Model
         [RegularExpression(ValidationConstants.EnBgDigitSpaceMinus, ErrorMessage = ValidationConstants.NotAllowedSymbolsErrorMessage)]
         public string Name { get; set; }
 
-        public virtual ICollection<Product> Products{ get; set; }
+        public virtual ICollection<Product> Products
+        {
+            get
+            {
+                return this.products;
+            }
 
-        //public virtual ICollection<Category> SubCategories
-        //{
-        //    get
-        //    {
-        //        return this.subCategories;
-        //    }
+            set
+            {
+                this.products = value;
+            }
+        }
 
-        //    set
-        //    {
-        //        this.subCategories = value;
-        //    }
-        //}
-    }
+            //public virtual ICollection<Category> SubCategories
+            //{
+            //    get
+            //    {
+            //        return this.subCategories;
+            //    }
+
+            //    set
+            //    {
+            //        this.subCategories = value;
+            //    }
+            //}
+        }
 }

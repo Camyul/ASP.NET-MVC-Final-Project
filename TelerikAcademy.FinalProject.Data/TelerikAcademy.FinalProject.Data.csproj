@@ -69,6 +69,14 @@
     <Compile Include="Migrations\201710101611014_Add Category Order and OrderDetail Models.Designer.cs">
       <DependentUpon>201710101611014_Add Category Order and OrderDetail Models.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710141400043_Add ContactInfo and some properties for other models.cs" />
+    <Compile Include="Migrations\201710141400043_Add ContactInfo and some properties for other models.Designer.cs">
+      <DependentUpon>201710141400043_Add ContactInfo and some properties for other models.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710141834498_FixErrors.cs" />
+    <Compile Include="Migrations\201710141834498_FixErrors.Designer.cs">
+      <DependentUpon>201710141834498_FixErrors.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MsSqlDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,6 +101,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710101611014_Add Category Order and OrderDetail Models.resx">
       <DependentUpon>201710101611014_Add Category Order and OrderDetail Models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710141400043_Add ContactInfo and some properties for other models.resx">
+      <DependentUpon>201710141400043_Add ContactInfo and some properties for other models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710141834498_FixErrors.resx">
+      <DependentUpon>201710141834498_FixErrors.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

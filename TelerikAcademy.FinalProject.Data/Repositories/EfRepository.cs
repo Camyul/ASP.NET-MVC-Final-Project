@@ -1,11 +1,8 @@
 ﻿using Bytes2you.Validation;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TelerikAcademy.FinalProject.Data.Model.Contracts;
 
 namespace TelerikAcademy.FinalProject.Data.Repositories
@@ -70,6 +67,11 @@ namespace TelerikAcademy.FinalProject.Data.Repositories
             }
 
             entry.State = EntityState.Modified;
+        }
+
+        public T GetById(Guid? id)
+        {
+            return this.context.Set<T>().Find(id);
         }
     }
 }

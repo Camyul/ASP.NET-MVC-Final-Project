@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using TelerikAcademy.FinalProject.Data.Model.Contracts;
@@ -9,14 +10,14 @@ namespace TelerikAcademy.FinalProject.Data.Model
 {
     public class User : IdentityUser, IAuditable, IDeletable
     {
-        //private ICollection<Order> orders;
-        //private ICollection<ContactInfo> contactInfos;
+        private ICollection<Order> orders;
+        private ICollection<ContactInfo> contactInfos;
 
-        //public User()
-        //{
-            //this.orders = new HashSet<Order>();
-            //this.contactInfos = new HashSet<ContactInfo>();
-        //}
+        public User()
+        {
+            this.orders = new HashSet<Order>();
+            this.contactInfos = new HashSet<ContactInfo>();
+        }
 
         public DateTime? CreatedOn { get; set; }
 
@@ -26,31 +27,31 @@ namespace TelerikAcademy.FinalProject.Data.Model
 
         public DateTime? ModifiedOn { get; set; }
 
-        //public virtual ICollection<Order> Orders
-        //{
-        //    get
-        //    {
-        //        return this.orders;
-        //    }
+        public virtual ICollection<Order> Orders
+        {
+            get
+            {
+                return this.orders;
+            }
 
-        //    set
-        //    {
-        //        this.orders = value;
-        //    }
-        //}
+            set
+            {
+                this.orders = value;
+            }
+        }
 
-        //public virtual ICollection<ContactInfo> ContactInfos
-        //{
-        //    get
-        //    {
-        //        return this.contactInfos;
-        //    }
+        public virtual ICollection<ContactInfo> ContactInfos
+        {
+            get
+            {
+                return this.contactInfos;
+            }
 
-        //    set
-        //    {
-        //        this.contactInfos = value;
-        //    }
-        //}
+            set
+            {
+                this.contactInfos = value;
+            }
+        }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {

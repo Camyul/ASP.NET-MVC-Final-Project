@@ -21,8 +21,6 @@ namespace TelerikAcademy.FinalProject.Web
             ViewEngines.Engines.Clear();
             ViewEngines.Engines.Add(new RazorViewEngine());
 
-            // Database.SetInitializer(new MigrateDatabaseToLatestVersion<MsSqlDbContext, Configuration>());
-
             //var mapper = new AutoMapperConfig();
             //mapper.Execute(Assembly.GetExecutingAssembly());
         }

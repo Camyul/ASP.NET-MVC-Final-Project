@@ -29,14 +29,24 @@ namespace TelerikAcademy.FinalProject.Data.Migrations
         {
             if (!context.Products.Any())
             {
-                for (int i = 0; i < 5; i++)
+                Category category = new Category()
                 {
+                    Id = Guid.NewGuid(),
+                    Name = "Other"
+                };
+                context.Categories.Add(category);
+
+                for (int i = 0; i < 3; i++)
+                {
+
                     var product = new Product()
                     {
                         Id = Guid.NewGuid(),
                         Name = "Product " + i,
-                        Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lobortis nibh. Nullam bibendum, tortor quis porttitor fringilla, eros risus consequat orci, at scelerisque mauris dolor sit amet nulla. Vivamus turpis lorem, pellentesque eget enim ut, semper faucibus tortor. Aenean malesuada laoreet lorem.",
+                        LongDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lobortis nibh. Nullam bibendum, tortor quis porttitor fringilla, eros risus consequat orci, at scelerisque mauris dolor sit amet nulla. Vivamus turpis lorem, pellentesque eget enim ut, semper faucibus tortor. Aenean malesuada laoreet lorem.",
+                        Description = "Other Product",
                         Quantity = i + 3,
+                        CategoryId = category.Id.Value,
                         PictureUrl = "http://www.freepngimg.com/download/special_offer/5-2-special-offer-png-pic.png",
                         Price = 2M
                     };

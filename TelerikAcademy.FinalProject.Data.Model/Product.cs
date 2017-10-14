@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using TelerikAcademy.FinalProject.Common.Constant;
@@ -8,10 +9,14 @@ namespace TelerikAcademy.FinalProject.Data.Model
 {
     public class Product : DataModel
     {
-        //public Product()
-        //{
-           
-        //}
+        public Product()
+        {
+            this.OrderDetails = new HashSet<OrderDetail>();
+            this.Id = Guid.NewGuid();
+        }
+
+        [Key]
+        public Guid? Id { get; set; }
 
         [Required]
         [Index(IsUnique = true)]
@@ -50,5 +55,7 @@ namespace TelerikAcademy.FinalProject.Data.Model
 
         [Required]
         public decimal Price { get; set; }
+
+        public ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

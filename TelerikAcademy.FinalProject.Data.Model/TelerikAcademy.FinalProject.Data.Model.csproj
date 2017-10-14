@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Abstracts\DataModel.cs" />
     <Compile Include="Category.cs" />
+    <Compile Include="ContactInfo.cs" />
     <Compile Include="Contracts\IAuditable.cs" />
     <Compile Include="Contracts\IDeletable.cs" />
     <Compile Include="Order.cs" />
