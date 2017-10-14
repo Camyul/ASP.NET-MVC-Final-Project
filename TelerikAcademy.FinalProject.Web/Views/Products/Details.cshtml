@@ -6,7 +6,7 @@
     ViewBag.Title = "ProductDetails";
     //Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@using (@Html.BeginForm("", "", new { id = @Model.Id }, FormMethod.Post, new { @class = "form-group", id = @Model.Id, role = "form", enctype = "multipart/form-data" }))
+@using (@Html.BeginForm("OrderNow", "ShoppingCart", new { id = @Model.Id }, FormMethod.Post, new { @class = "form-group", id = @Model.Id, role = "form", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })

@@ -150,7 +150,7 @@ namespace TelerikAcademy.FinalProject.Web.Areas.Administration.Controllers
                     userShippingInfo.PostCode = newOrder.PostCode;
                     userShippingInfo.Customer = currentUser;
                     userShippingInfo.CustomerID = userId;
-                    Guid? conactInfoId = this.contactInfoService.Create(userShippingInfo);
+                    Guid? conactInfoId = Guid.NewGuid(); //this.contactInfoService.Create(userShippingInfo);
                     currentUser.ContactInfos.Add(userShippingInfo);
                 }
 

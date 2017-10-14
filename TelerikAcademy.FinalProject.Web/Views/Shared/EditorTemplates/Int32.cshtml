@@ -1,0 +1,5 @@
+﻿@model int
+<div class="row">
+    @Html.LabelFor(m => m)
+    @Html.TextBoxFor(m => m, new { type = "number", min = "1", @class = "form-control", name = "quantity" })
+</div>

@@ -342,6 +342,9 @@
     <Content Include="Views\Shared\_CategoriesPartial.cshtml" />
     <Content Include="Views\Products\_FilteredProductsPartial.cshtml" />
     <Content Include="Views\ShoppingCart\Thanks.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\String.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Int32.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,17 @@
+﻿@model string
+@{
+    string classToUse = "form-control";
+
+    if (ViewBag.CustomClass != null)
+    {
+        classToUse = (string)ViewBag.CustomClass;
+
+    }
+}
+<div class="row form-control-static">
+    @Html.LabelFor(m => m)
+    <br />
+    @Html.ValidationMessageFor(model => model, "     ", new { @class = "text -danger" })
+    @Html.TextBoxFor(m => m, new { placeholder = ViewData.ModelMetadata.Watermark, @class = "form - control" })
+</div>
+<br />
