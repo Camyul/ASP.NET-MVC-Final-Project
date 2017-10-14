@@ -7,7 +7,7 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li>
-            @Html.ActionLink("My Cart", "MyCart", "ShopingCart", htmlAttributes: new { title = "Manage" })
+            @Html.ActionLink("My Cart", "MyCart", "ShoppingCart")
         </li>
         <li>
             @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
