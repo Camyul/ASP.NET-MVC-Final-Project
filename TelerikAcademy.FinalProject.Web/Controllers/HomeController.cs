@@ -27,19 +27,33 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
         public ActionResult Index()
         {
             // Without AutoMapper
-            var products = this.productsService
-                .GetAll()
-                .OrderByDescending(x => x.CreatedOn)
-                .Select(x => new ProductViewModel()
-                {
-                    Id = x.Id,
-                    PictureUrl = x.PictureUrl,
-                    Name = x.Name,
-                    Description = x.Description,
-                    Price = x.Price
-                })
-                .Take(8)
-                .ToList();
+            if (this.HttpContext.Cache["products"] == null)
+            {
+                var cachedProducts = this.productsService
+               .GetAll()
+               .OrderByDescending(x => x.CreatedOn)
+               .Select(x => new ProductViewModel()
+               {
+                   Id = x.Id,
+                   PictureUrl = x.PictureUrl,
+                   Name = x.Name,
+                   Description = x.Description,
+                   Price = x.Price
+               })
+               .Take(8)
+               .ToList();
+
+                //this.HttpContext.Cache["products"] = cachedProducts;
+                this.HttpContext.Cache.Insert(
+                    "products",     //key
+                    cachedProducts, //value to cache
+                    null,           //dependecies
+                    DateTime.Now.AddSeconds(60), //absolute exp.
+                    TimeSpan.Zero  //sliding exp. 
+                           // callback delegate
+                    );
+            }
+            var products = this.HttpContext.Cache["products"];
 
             // With AutoMapper
             //var products = this.productsService

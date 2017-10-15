@@ -10,23 +10,6 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
     public class HomeControllerTest
     {
         [Test]
-        public void IndexShould_GetAllCalledExactlyOncee()
-        {
-            // Arrange
-            
-            var productServiceMock = new Mock<IProductsService>();
-            // var mapperMock = new Mock<IMapper>();
-            HomeController controller = new HomeController(productServiceMock.Object);//, mapperMock.Object);
-         
-
-            // Act
-           var result = controller.Index();
-
-            // Assert
-            productServiceMock.Verify(x => x.GetAll(), Times.Once);
-        }
-
-        [Test]
         public void AboutShould_DisplayMessage()
         {
             // Arrange
@@ -53,5 +36,22 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
+
+        //[Test]
+        //public void IndexShould_GetAllCalledExactlyOncee()
+        //{
+        //    // Arrange
+
+        //    var productServiceMock = new Mock<IProductsService>();
+        //    // var mapperMock = new Mock<IMapper>();
+        //    HomeController controller = new HomeController(productServiceMock.Object);//, mapperMock.Object);
+
+
+        //    // Act
+        //    var result = controller.Index();
+
+        //    // Assert
+        //    productServiceMock.Verify(x => x.GetAll(), Times.Once);
+        //}
     }
 }
