@@ -10,7 +10,7 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
     public class HomeControllerTest
     {
         [Test]
-        public void IndexShould_GetAllInvocedExactlyOncee()
+        public void IndexShould_GetAllCalledExactlyOncee()
         {
             // Arrange
             

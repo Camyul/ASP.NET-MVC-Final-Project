@@ -34,7 +34,7 @@ namespace TelerikAcademy.FinalProject.Services
         {
             Guard.WhenArgument(id, nameof(id)).IsNull().Throw();
 
-            var entity = this.GetById(id);
+            var entity = this.GetById(id.Value);
             entity.IsDeleted = true;
             this.ordersRepo.Update(entity);
             this.context.Commit();

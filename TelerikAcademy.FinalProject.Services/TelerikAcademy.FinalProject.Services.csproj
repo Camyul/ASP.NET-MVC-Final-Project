@@ -69,12 +69,10 @@
     <Compile Include="Contracts\IProductsService.cs" />
     <Compile Include="Contracts\IService.cs" />
     <Compile Include="Contracts\ICategoryService.cs" />
-    <Compile Include="Contracts\IUsserService.cs" />
     <Compile Include="OrderDetailsService.cs" />
     <Compile Include="OrderService.cs" />
     <Compile Include="ProductsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TelerikAcademy.FinalProject.Data.Model\TelerikAcademy.FinalProject.Data.Model.csproj">

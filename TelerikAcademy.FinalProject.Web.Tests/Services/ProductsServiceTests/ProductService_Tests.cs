@@ -15,7 +15,7 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Services.ProductsService
     public class ProductService_Tests
     {
         [Test]
-        public void GetAll_Should_InvocedRepository_All()
+        public void GetAll_Should_CallRepository_All()
         {
 
             // Arrange
@@ -32,7 +32,7 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Services.ProductsService
 
 
         [Test]
-        public void Update_Should_InvocedRepository_Update()
+        public void Update_Should_CallRepository_Update()
         {
 
             // Arrange
@@ -84,7 +84,7 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Services.ProductsService
         }
 
         [Test]
-        public void GetByCategory_Should_InvocedRepository_All()
+        public void GetByCategory_Should_CallRepository_All()
         {
 
             // Arrange
@@ -101,7 +101,7 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Services.ProductsService
         }
 
         [Test]
-        public void FilterByName_Should_InvocedRepository_All()
+        public void FilterByName_Should_CallRepository_All()
         {
 
             // Arrange

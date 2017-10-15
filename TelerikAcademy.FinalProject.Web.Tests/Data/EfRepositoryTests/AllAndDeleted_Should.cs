@@ -11,7 +11,7 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Data.EfRepository
     public class AllAndDeleted_Should
     {
         [Test]
-        public void ReturnValue_WhenInvoced()
+        public void ReturnValue_WhenCalled()
         {
             // Arrange
             var mockedDbContext = new Mock<MsSqlDbContext>();

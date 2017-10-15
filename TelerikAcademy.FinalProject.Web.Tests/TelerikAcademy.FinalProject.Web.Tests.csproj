@@ -143,10 +143,14 @@
     <Compile Include="Models\UserTests\User_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
-    <Compile Include="Services\CategoryService\CategoryService_Tests.cs" />
-    <Compile Include="Services\CategoryService\Constructor_Should.cs" />
-    <Compile Include="Services\ProductsService\Constructor_Should.cs" />
-    <Compile Include="Services\ProductsService\ProductService_Tests.cs" />
+    <Compile Include="Services\CategoryServiceTests\CategoryService_Tests.cs" />
+    <Compile Include="Services\CategoryServiceTests\Constructor_Should.cs" />
+    <Compile Include="Services\ContactInfoServiceTests\Constructor_Should.cs" />
+    <Compile Include="Services\ContactInfoServiceTests\ContactInfoService_Tests.cs" />
+    <Compile Include="Services\OrderServiceTests\Constructor_Should.cs" />
+    <Compile Include="Services\OrderServiceTests\OrderService_Tests.cs" />
+    <Compile Include="Services\ProductsServiceTests\Constructor_Should.cs" />
+    <Compile Include="Services\ProductsServiceTests\ProductService_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

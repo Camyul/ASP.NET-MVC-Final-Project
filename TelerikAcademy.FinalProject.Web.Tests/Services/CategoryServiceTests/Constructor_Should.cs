@@ -1,10 +1,6 @@
 ﻿using Moq;
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TelerikAcademy.FinalProject.Data.Model;
 using TelerikAcademy.FinalProject.Data.Repositories;
 using TelerikAcademy.FinalProject.Data.SaveContext;

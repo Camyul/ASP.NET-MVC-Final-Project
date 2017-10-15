@@ -88,7 +88,7 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
         }
 
         [Test]
-        public void LoginSgould_ReturnActionResult_WhenInvoked()
+        public void LoginSgould_ReturnActionResult_WhenCalled()
         {
             // Arrange
             var signInServiceMock = new Mock<ISignInService>();
@@ -123,7 +123,7 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
         }
 
         [Test]
-        public void RegisterShould_ReturnActionResult_WhenInvoked()
+        public void RegisterShould_ReturnActionResult_WhenCalled()
         {
             // Arrange
             var signInServiceMock = new Mock<ISignInService>();

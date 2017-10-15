@@ -14,7 +14,7 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Data.SaveContextTests
     public class Commit_Should
     {
         [Test]
-        public void BeInvokedOnce()
+        public void BeCalledOnce()
         {
             //Arrange
             var mockedContext = new Mock<MsSqlDbContext>();

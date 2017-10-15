@@ -1,10 +1,6 @@
 ﻿using Moq;
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TelerikAcademy.FinalProject.Data.Model;
 using TelerikAcademy.FinalProject.Data.Repositories;
 using TelerikAcademy.FinalProject.Data.SaveContext;
@@ -15,7 +11,7 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Services.CategoryService
     public class CategoryService_Tests
     {
         [Test]
-        public void GetAllCategoriesSortedByName_Should_InvocedRepository_All()
+        public void GetAllCategoriesSortedByName_Should_CallRepository_All()
         {
 
             // Arrange
@@ -31,7 +27,7 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Services.CategoryService
         }
 
         [Test]
-        public void GetById_ShouldReturnsNullWhenProductIdNotValid()
+        public void GetById_ShouldReturnsNullWhenCategoryIdNotValid()
         {
             // Arrange
             var EfRepositoryStub = new Mock<IEfRepository<Category>>();

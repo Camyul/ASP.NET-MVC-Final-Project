@@ -53,7 +53,7 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
         }
 
         [Test]
-        public void AddProductShould_InvocedAddProduct()
+        public void AddProductShould_CallAddProduct()
         {
             //Arrange
             var productServiceMock = new Mock<IProductsService>();

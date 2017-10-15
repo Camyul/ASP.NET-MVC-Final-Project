@@ -62,19 +62,5 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
             //Act & Assert
             Assert.NotNull(result);
         }
-        //[Test]
-        //public void RemoveLoginShould_Redirect_WhenParamsAreValid()
-        //{
-        //    // Arrange
-        //    var signInServiceMock = new Mock<ISignInService>();
-        //    var userServiceMock = new Mock<IUserService>();
-        //    ManageController manageController = new ManageController(signInServiceMock.Object, userServiceMock.Object);
-            
-
-        //    //Act & Assert
-        //    manageController
-        //        .WithCallTo(c => c.RemoveLogin("test", "tt"))
-        //        .ShouldRedirectToRoute("ManageLogins");
-        //}
     }
 }
