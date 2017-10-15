@@ -49,6 +49,23 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Services.ProductsService
         }
 
         [Test]
+        public void AddProduct_Should_CallRepository_Update()
+        {
+
+            // Arrange
+            var EfRepositoryStub = new Mock<IEfRepository<Product>>();
+            var SaveContextStub = new Mock<ISaveContext>();
+            var product = new Product();
+            var productsServiceMock = new TelerikAcademy.FinalProject.Services.ProductsService(EfRepositoryStub.Object, SaveContextStub.Object);
+
+            // Act
+            productsServiceMock.AddProduct(product);
+
+            // Assert
+            EfRepositoryStub.Verify(x => x.Add(product), Times.Once);
+        }
+
+        [Test]
         public void GetById_ShouldReturnsNullWhenProductIdNotValid()
         {
             // Arrange

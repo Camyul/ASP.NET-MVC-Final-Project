@@ -129,6 +129,7 @@
     <Compile Include="Controllers\CategoryControllerTests.cs" />
     <Compile Include="Controllers\ManageControllerTests.cs" />
     <Compile Include="Controllers\ProductsControllerTests.cs" />
+    <Compile Include="Controllers\ShoppingCartControllerTests.cs" />
     <Compile Include="Data\DbContextTests\Constructor_Should.cs" />
     <Compile Include="Data\DbContextTests\Create_Should.cs" />
     <Compile Include="Data\EfRepositoryTests\Add_Should.cs" />
@@ -147,6 +148,8 @@
     <Compile Include="Services\CategoryServiceTests\Constructor_Should.cs" />
     <Compile Include="Services\ContactInfoServiceTests\Constructor_Should.cs" />
     <Compile Include="Services\ContactInfoServiceTests\ContactInfoService_Tests.cs" />
+    <Compile Include="Services\OrderDetailsServiceTests\Constructor_Should.cs" />
+    <Compile Include="Services\OrderDetailsServiceTests\OrderDetailsService_Tests.cs" />
     <Compile Include="Services\OrderServiceTests\Constructor_Should.cs" />
     <Compile Include="Services\OrderServiceTests\OrderService_Tests.cs" />
     <Compile Include="Services\ProductsServiceTests\Constructor_Should.cs" />

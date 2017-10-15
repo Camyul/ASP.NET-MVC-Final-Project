@@ -49,7 +49,7 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Services.OrderServiceTests
         }
 
         [Test]
-        public void GetById_ShouldReturnsNullWhenOrserIdIsNull()
+        public void GetById_ShouldReturnsNullWhenOrderIdIsNull()
         {
             //Arrange
             var EfRepositoryStub = new Mock<IEfRepository<Order>>();

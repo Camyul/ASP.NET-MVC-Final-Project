@@ -2,9 +2,6 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 using TelerikAcademy.FinalProject.Data.Model;
 using TelerikAcademy.FinalProject.Services.Contracts;
@@ -38,7 +35,7 @@ namespace TelerikAcademy.FinalProject.Web.Tests.Controllers
         }
 
         [Test]
-        public void AddCategoryShould_InvocedAddCategory()
+        public void AddCategoryShould_CallAddCategory()
         {
             //Arrange
             var categoryServiceMock = new Mock<ICategoryService>();

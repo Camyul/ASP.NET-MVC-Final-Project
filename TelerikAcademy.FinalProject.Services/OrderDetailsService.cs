@@ -33,24 +33,6 @@ namespace TelerikAcademy.FinalProject.Services
             return id.HasValue ? this.ordersDetailsRepo.GetById(id.Value) : null;
         }
 
-        //public int Delete(int? id)
-        //{
-        //    Guard.WhenArgument(id, nameof(id)).IsNull().Throw();
-
-        //    var entity = this.GetById(id);
-        //    entity.IsDeleted = true;
-        //    this.orderDetailsSetWrapper.Update(entity);
-        //    return this.dbContext.SaveChanges();
-        //}
-
-        //public IEnumerable<OrderDetail> GetAll()
-        //{
-        //    return this.orderDetailsSetWrapper
-        //         .All()
-        //         .Where(c => c.IsDeleted == false)
-        //         .ToList();
-        //}
-
         public Guid Update(OrderDetail orderDetails)
         {
             OrderDetail orderToUpdate = this.ordersDetailsRepo.GetById(orderDetails.Id.Value);
