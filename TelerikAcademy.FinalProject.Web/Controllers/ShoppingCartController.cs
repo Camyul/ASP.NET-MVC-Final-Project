@@ -45,6 +45,7 @@ namespace TelerikAcademy.FinalProject.Web.Areas.Administration.Controllers
         public List<OrderDetailViewModel> CartItems { get; set; }
 
         [HttpGet]
+        [Authorize]
         public ActionResult MyCart()
         {
             if (Session["cart"] == null)
@@ -61,6 +62,7 @@ namespace TelerikAcademy.FinalProject.Web.Areas.Administration.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult OrderNow(Guid? id)
         {
             var productToAdd = new ProductViewModel(this.productService.GetById(id));

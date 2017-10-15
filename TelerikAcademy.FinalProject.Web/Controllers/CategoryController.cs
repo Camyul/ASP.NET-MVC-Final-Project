@@ -19,6 +19,7 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult AddCategory()
         {
             var category = new CategoryViewModel();
@@ -27,6 +28,7 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult AddCategory(CategoryViewModel categoryModel)
         {

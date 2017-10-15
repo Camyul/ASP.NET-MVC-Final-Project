@@ -98,6 +98,7 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult AddProduct()
         {
             var product = new ProductViewModel();
@@ -120,6 +121,7 @@ namespace TelerikAcademy.FinalProject.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult AddProduct(ProductViewModel productModel)
         {
